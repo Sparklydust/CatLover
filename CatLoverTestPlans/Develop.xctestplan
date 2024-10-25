@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "5AE07AA8-46F5-4150-9FB8-CAE081EEA00A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "language" : "en",
+    "region" : "FR",
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true,
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CatLover.xcodeproj",
+        "identifier" : "2A3829E92CCBCAAA00169B30",
+        "name" : "CatLoverTests"
+      }
+    }
+  ],
+  "version" : 1
+}

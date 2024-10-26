@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2AFB442F2CCD412F00184851 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 2AFB442E2CCD412F00184851 /* Factory */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2A3829EB2CCBCAAA00169B30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AFB442F2CCD412F00184851 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,7 @@
 				2A3829DC2CCBCAA900169B30 /* CatLover */,
 				2A382A112CCBDA5600169B30 /* CatLoverTestPlans */,
 				2A3829ED2CCBCAAA00169B30 /* CatLoverTests */,
+				2AFB442D2CCD412F00184851 /* Frameworks */,
 				2A3829DB2CCBCAA900169B30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +93,13 @@
 				2A3829EA2CCBCAAA00169B30 /* CatLoverTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2AFB442D2CCD412F00184851 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +123,7 @@
 			);
 			name = CatLover;
 			packageProductDependencies = (
+				2AFB442E2CCD412F00184851 /* Factory */,
 			);
 			productName = CatLover;
 			productReference = 2A3829DA2CCBCAA900169B30 /* CatLover.app */;
@@ -167,6 +181,9 @@
 			);
 			mainGroup = 2A3829D12CCBCAA900169B30;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2AFB442C2CCD410C00184851 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2A3829DB2CCBCAA900169B30 /* Products */;
 			projectDirPath = "";
@@ -515,6 +532,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2AFB442C2CCD410C00184851 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2AFB442E2CCD412F00184851 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AFB442C2CCD410C00184851 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A3829D22CCBCAA900169B30 /* Project object */;
 }

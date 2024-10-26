@@ -5,6 +5,6 @@
 import Testing
 @testable import CatLover
 
-class BaseTestCase {
+struct L10nTests {
   // Intentionally empty
 }

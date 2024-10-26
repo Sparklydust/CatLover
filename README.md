@@ -12,6 +12,6 @@ This project uses the [Factory](https://github.com/hmlongco/Factory) package to 
 
 ### Benefits for CatLover
 
-Factory helps keep the CatLover app clean and flexible, supporting easy testing and modular design for future features. 
+Factory helps keep the CatLover app clean and flexible, supporting easy testing and modular design for future features.
 
 For more details, see the [Factory GitHub Repository](https://github.com/hmlongco/Factory).

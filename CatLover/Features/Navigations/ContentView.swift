@@ -7,14 +7,7 @@ import SwiftUI
 struct ContentView: View {
 
   var body: some View {
-    VStack {
-      Image(systemName: "globe")
-        .font(.largeTitle)
-        .foregroundStyle(.accent)
-
-      Text("Hello, world!")
-    }
-    .padding()
+    Image(.launchScreenV1)
   }
 }
 

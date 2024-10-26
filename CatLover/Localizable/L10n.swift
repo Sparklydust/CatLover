@@ -2,9 +2,8 @@
 // Copyright © 2024 and confidential to CatLover. All rights reserved.
 //
 
-import Testing
-@testable import CatLover
+import Foundation
 
-class BaseTestCase {
+enum L10n {
   // Intentionally empty
 }

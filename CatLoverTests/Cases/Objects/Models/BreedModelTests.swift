@@ -7,7 +7,7 @@ import Testing
 
 struct BreedModelTests {
 
-  @Test func initializationWithBreedData_allBreedModelValuesAreSet() async throws {
+  @Test func initializationWithBreedData_allBreedModelValuesAreSet() {
     let expected: BreedData = .fake()
 
     let result = BreedModel(with: expected)

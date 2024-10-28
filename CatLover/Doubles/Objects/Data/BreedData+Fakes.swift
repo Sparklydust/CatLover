@@ -34,7 +34,7 @@ extension BreedData.ImageData {
   /// Create fake ``BreedData.ImageData`` object for unit tests.
   /// Returns: Initialized object with fake data.
   static func fake(
-    url: String = "breedFake01"
+    url: String = "imBreedFake01"
   ) -> BreedData.ImageData {
     .init(
       url: url

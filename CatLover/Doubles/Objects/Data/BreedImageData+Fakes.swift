@@ -10,7 +10,7 @@ extension BreedImageData {
   /// Returns: Initialized object with fake data.
   static func fake(
     id: String = "N-94oSJ5T",
-    url: String = "breedFake03"
+    url: String = "imBreedFake03"
   ) -> BreedImageData {
     .init(
       id: id,

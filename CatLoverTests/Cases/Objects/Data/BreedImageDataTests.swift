@@ -8,13 +8,12 @@ import Testing
 
 struct BreedImageDataTests {
 
-  @Test func requestBreedImageData_jsonResponseIsSuccessfullyDecoded() async throws {
+  @Test func requestBreedImageData_jsonResponseIsSuccessfullyDecoded() throws {
     let expected: BreedImageData = .fake()
     let data = try ResourceLoader.jsonFake(.breedImageData)
 
     let result = try JSONDecoder().decode(BreedImageData.self, from: data)
 
-    #expect(result == expected, "Decoded `BreedImageData` must be equal to the `BreedImageData.json` file content."
-    )
+    #expect(result == expected, "Decoded `BreedImageData` must be equal to the `BreedImageData.json` file content.")
   }
 }

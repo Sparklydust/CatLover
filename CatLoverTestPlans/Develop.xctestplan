@@ -9,6 +9,12 @@
     }
   ],
   "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "CAT_API_KEY",
+        "value" : "ABC-123-DEF"
+      }
+    ],
     "language" : "en",
     "region" : "FR",
     "testExecutionOrdering" : "random",

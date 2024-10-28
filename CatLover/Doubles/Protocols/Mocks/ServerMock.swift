@@ -7,19 +7,29 @@ import Foundation
 final class ServerMock: ServerProtocol {
 
   // Mock values
+  private let urlRequestFake = URLRequest(url: URL(string: "https://fake.api.request.com")!)
+
   /// Pass inside ``ServerMock`` protocol methods to catch up works being perform during
   /// asynchronous requests.
   ///
   /// Used to unit tests asynchronous methods by stopping the work of an async/await work.
   var onPerformAsyncAwait: () throws -> Void = {}
 
+  let urlSessionMock: any URLSessionProtocol
+
+  init(urlSessionMock: any URLSessionProtocol) {
+    self.urlSessionMock = urlSessionMock
+  }
+
   // Protocol requirements
   func get<T: Codable>(
-    _ data: T.Type,
+    _ dataType: T.Type,
     atEndpoint endpoint: ServerEndpoint
   ) async throws -> T {
     try onPerformAsyncAwait()
 
-    throw ServerError.requestFails
+    let (data, _) = try await urlSessionMock.data(for: urlRequestFake, delegate: .none)
+    let decodedData = try JSONDecoder().decode(dataType, from: data)
+    return decodedData
   }
 }

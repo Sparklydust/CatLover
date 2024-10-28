@@ -28,7 +28,6 @@ final class URLSessionMock: URLSessionProtocol {
   ) async throws -> (Data, URLResponse) {
     guard error == .none,
           let httpResponse = response as? HTTPURLResponse,
-          200..<300 ~= httpResponse.statusCode,
           let data = data,
           let response = response
     else { throw error ?? .requestFails }

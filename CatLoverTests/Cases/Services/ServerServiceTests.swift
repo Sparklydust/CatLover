@@ -5,7 +5,12 @@
 import Testing
 @testable import CatLover
 
-final class ServerServiceTests {
+@Suite(.serialized)
+final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
+
+  override init() {
+    super.init()
+  }
 
   @Test func requestIsSuccessful_requestedDataIsReturned() async throws {
     #expect(false == true, "Test not yet implemented")

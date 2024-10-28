@@ -23,6 +23,7 @@ class BaseTestCase: @unchecked Sendable {
   }
 
   deinit {
+    Container.shared.reset()
     tearDownDoubles()
   }
 }

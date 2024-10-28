@@ -7,10 +7,8 @@ import Foundation
 final class ServerMock: ServerProtocol {
 
   // Mock values
-  /// Pass inside ``ServerMock`` protocol methods to catch up works being perform during
+  /// Passed inside ``ServerMock`` protocol methods to simulate work being performed during
   /// asynchronous requests.
-  ///
-  /// Used to unit tests asynchronous methods by stopping the work of an async/await work.
   var onPerformAsyncAwait: () throws -> Void = {}
 
   let urlSessionMock: any URLSessionProtocol

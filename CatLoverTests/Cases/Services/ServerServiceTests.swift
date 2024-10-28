@@ -42,7 +42,7 @@ final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
     #expect(result == expected)
   }
 
-  @Test func requestIsNoSuccessful_serverErrorIsReturned() async throws {
+  @Test func requestIsNotSuccessful_serverErrorIsReturned() async throws {
     urlSessionMock = try TestTool.urlSessionMock(error: .requestFails)
     Container.shared.urlSession.register { self.urlSessionMock }
     sut = ServerService()

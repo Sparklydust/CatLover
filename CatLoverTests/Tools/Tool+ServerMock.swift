@@ -22,7 +22,7 @@ struct TestTool {
   /// - Parameters:
   ///   - data: The fake data that is expected to come back from the fake api call for tests, found
   ///   in the `JsonFileName.swift` file as a result of the fake api call.
-  ///   - error: A fake ``ServerMock`` object if needed to test an error from an api response.
+  ///   - error: A optional ``ServerMock`` object if needed to test an error from an api response.
   ///   - file: The file where the test fails.
   ///   - line: The line of code where the test fails.
   /// - Returns: A fake ``ServerMock`` to initialized a Factory ``ServerService`` object for faking
@@ -48,7 +48,7 @@ struct TestTool {
   /// - Parameters:
   ///   - data: The fake data that is expected to come back from the fake api call for tests, found in
   ///   the `JsonFileName.swift` file as a result of the fake api call.
-  ///   - error: A fake ``ServerError`` object if needed to test an error from an api response.
+  ///   - error: A optional ``ServerError`` object if needed to test an error from an api response.
   ///   - file: The file where the test fails.
   ///   - line: The line of code where the test fails.
   /// - Returns: A fake ``URLSessionMock`` to initialized a `urlSessionMock` object for faking api call

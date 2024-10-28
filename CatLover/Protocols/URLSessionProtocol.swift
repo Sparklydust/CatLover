@@ -9,8 +9,8 @@ extension URLSession: URLSessionProtocol {
   // Intentionally empty
 }
 
-/// Nods the head on top of ``URLSession`` to reduce the dependency for testing and insert
-/// it in the ``Injected`` Factor container.
+/// Acts as an abstraction on top of ``URLSession`` to reduce the dependency for testing and enable
+/// injection through the ``Injected`` factory container.
 protocol URLSessionProtocol {
 
   /// Retrieves the contents of a URL and delivers the data asynchronously.

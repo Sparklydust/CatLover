@@ -4,13 +4,9 @@
 
 import Foundation
 
-final actor ImageCacheService: ImageCacheProtocol {
-  // Intentionally empty
-}
+final class ImageCacheDummy: ImageCacheProtocol {
 
-// MARK: - ImageCacheProtocol
-extension ImageCacheService {
-
+  // Protocol requirements
   func write(_ data: Data, name: String) async throws {
     // Intentionally empty
   }

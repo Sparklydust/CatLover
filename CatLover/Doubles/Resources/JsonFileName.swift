@@ -7,5 +7,7 @@ import Foundation
 enum JsonFileName: String {
 
   case breedData = "BreedData"
+  case breedImageData = "BreedImageData"
+  case breedsImagesListData = "BreedsImagesListData"
   case breedsListData = "BreedsListData"
 }

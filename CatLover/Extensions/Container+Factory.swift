@@ -7,6 +7,10 @@ import Foundation
 
 extension Container {
 
+  var server: Factory<any ServerProtocol> {
+    self { ServerService() }
+  }
+
   var urlSession: Factory<any URLSessionProtocol> {
     self { URLSession.shared }
   }

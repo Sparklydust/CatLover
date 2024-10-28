@@ -49,6 +49,7 @@ extension BaseTestCase {
   /// of real services.
   private func setUpFactoryContainers() {
     Container.shared.urlSession.register { self.urlSessionDummy }
+    Container.shared.server.register { self.serverDummy }
   }
 
   /// Clear all doubles present in the project.

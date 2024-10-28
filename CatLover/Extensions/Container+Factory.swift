@@ -7,6 +7,20 @@ import Foundation
 
 extension Container {
 
+  /// Factory for creating ``FileManager`` instances that conform to ``FileManagerProtocol``.
+  ///
+  /// Returns a new ``FileManager`` instance for device file manager to cache data.
+  var fileManager: Factory<any FileManagerProtocol> {
+    self { FileManager() }
+  }
+
+  /// Factory for creating ``ImageCacheService`` instances that conform to ``ImageCacheProtocol``.
+  ///
+  /// Returns a new ``ImageCacheService`` instance for caching images.
+  var imageCache: Factory<any ImageCacheProtocol> {
+    self { ImageCacheService() }
+  }
+
   /// Factory for creating server instances that conform to ``ServerProtocol``.
   ///
   /// Returns a new ``ServerService`` instance for handling server requests.

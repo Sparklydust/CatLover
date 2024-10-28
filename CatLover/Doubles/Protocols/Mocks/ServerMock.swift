@@ -7,8 +7,6 @@ import Foundation
 final class ServerMock: ServerProtocol {
 
   // Mock values
-  private let urlRequestFake = URLRequest(url: URL(string: "https://fake.api.request.com")!)
-
   /// Pass inside ``ServerMock`` protocol methods to catch up works being perform during
   /// asynchronous requests.
   ///
@@ -28,7 +26,7 @@ final class ServerMock: ServerProtocol {
   ) async throws -> T {
     try onPerformAsyncAwait()
 
-    let (data, _) = try await urlSessionMock.data(for: urlRequestFake, delegate: .none)
+    let (data, _) = try await urlSessionMock.data(from: URL(string: "https://fake.api.request.com")!)
     let decodedData = try JSONDecoder().decode(dataType, from: data)
     return decodedData
   }

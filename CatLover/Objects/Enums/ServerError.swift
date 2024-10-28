@@ -7,4 +7,5 @@ import Foundation
 enum ServerError: Error {
 
   case requestFails
+  case urlConstructionFails
 }

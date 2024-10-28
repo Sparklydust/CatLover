@@ -13,36 +13,32 @@ extension URLSession: URLSessionProtocol {
 /// it in the ``Injected`` Factor container.
 protocol URLSessionProtocol {
 
-  /// Downloads the contents of a URL based on the specified URL request and delivers the data
-  /// asynchronously.
+  /// Retrieves the contents of a URL and delivers the data asynchronously.
   ///
   /// Use this method to wait until the session finishes transferring data and receive it in a single
   /// Data instance. To process the bytes as the session receives them, use bytes(for:delegate:).
   /// - Parameters:
-  ///   - request: A URL request object that provides request-specific information such as the URL,
-  ///   cache policy, request type, and body data or body stream.
+  ///   - url: The URL to retrieve.
   ///   - delegate: A delegate that receives life cycle and authentication challenge callbacks as the
   ///   transfer progresses.
   /// - Returns: An asynchronously-delivered tuple that contains the URL contents as a Data instance,
   /// and a URLResponse.
   func data(
-    for request: URLRequest,
+    from url: URL,
     delegate: (any URLSessionTaskDelegate)?
   ) async throws -> (Data, URLResponse)
 }
 
 extension URLSessionProtocol {
 
-  /// Downloads the contents of a URL based on the specified URL request and delivers the data
-  /// asynchronously.
+  /// Retrieves the contents of a URL and delivers the data asynchronously.
   ///
   /// Use this method to wait until the session finishes transferring data and receive it in a single
   /// Data instance.
-  /// - Parameter request: A URL request object that provides request-specific information such as the
-  /// URL, cache policy, request type, and body data or body stream.
+  /// - Parameter url: The URL to retrieve.
   /// - Returns: An asynchronously-delivered tuple that contains the URL contents as a Data instance,
   /// and a URLResponse.
-  func data(for request: URLRequest) async throws -> (Data, URLResponse) {
-    try await data(for: request, delegate: .none)
+  func data(from url: URL) async throws -> (Data, URLResponse) {
+    try await data(from: url, delegate: .none)
   }
 }

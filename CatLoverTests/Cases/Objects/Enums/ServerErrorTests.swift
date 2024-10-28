@@ -12,4 +12,10 @@ struct ServerErrorTests {
 
     #expect(result != nil)
   }
+
+  @Test func urlConstructionFails_existsAsAServerErrorCase() async throws {
+    let result = ServerError.urlConstructionFails
+
+    #expect(result != nil)
+  }
 }

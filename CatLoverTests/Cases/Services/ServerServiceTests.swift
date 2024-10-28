@@ -23,6 +23,7 @@ final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
   @Test func requestIsSuccessful_requestedDataIsReturned() async throws {
     urlSessionMock = try TestTool.urlSessionMock(data: .breedsListData)
     Container.shared.urlSession.register { self.urlSessionMock }
+    sut = ServerService()
     let expected: [BreedData] = [
       .fake(),
       .fake(
@@ -35,7 +36,6 @@ final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
         image: .fake(url: "imBreedFake02")
       )
     ]
-    sut = ServerService()
 
     let result = try await sut.get([BreedData].self, atEndpoint: .breedsList)
 
@@ -43,6 +43,12 @@ final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
   }
 
   @Test func requestIsNoSuccessful_serverErrorIsReturned() async throws {
-    #expect(false == true, "Test not yet implemented")
+    urlSessionMock = try TestTool.urlSessionMock(error: .requestFails)
+    Container.shared.urlSession.register { self.urlSessionMock }
+    sut = ServerService()
+
+    await #expect(throws: ServerError.requestFails) {
+      _ = try await sut.get([BreedData].self, atEndpoint: .breedsList)
+    }
   }
 }

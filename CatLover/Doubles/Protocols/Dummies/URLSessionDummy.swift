@@ -8,7 +8,7 @@ final class URLSessionDummy: URLSessionProtocol {
 
   // Protocol requirements
   func data(
-    from url: URL,
+    for request: URLRequest,
     delegate: (any URLSessionTaskDelegate)?)
   async throws -> (Data, URLResponse) {
     (Data(), URLResponse())

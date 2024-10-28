@@ -23,7 +23,7 @@ final class URLSessionMock: URLSessionProtocol {
 
   // Protocol requirements
   func data(
-    from url: URL,
+    for request: URLRequest,
     delegate: (any URLSessionTaskDelegate)?
   ) async throws -> (Data, URLResponse) {
     guard error == .none,

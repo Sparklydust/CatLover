@@ -26,7 +26,8 @@ final class ServerMock: ServerProtocol {
   ) async throws -> T {
     try onPerformAsyncAwait()
 
-    let (data, _) = try await urlSessionMock.data(from: URL(string: "https://fake.api.request.com")!)
+    let requestFake = URLRequest(url: URL(string: "https://fake.api.request.com")!)
+    let (data, _) = try await urlSessionMock.data(for: requestFake)
     let decodedData = try JSONDecoder().decode(dataType, from: data)
     return decodedData
   }

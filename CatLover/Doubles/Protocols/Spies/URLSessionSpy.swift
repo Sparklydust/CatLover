@@ -9,18 +9,18 @@ final class URLSessionSpy: URLSessionProtocol {
   // Spy values
   var isDataCalled = false
   var dataCount: Int = .zero
-  var url: URL?
+  var request: URLRequest?
   var delegate: (any URLSessionTaskDelegate)?
 
   // Protocol requirements
   func data(
-    from url: URL,
+    for request: URLRequest,
     delegate: (any URLSessionTaskDelegate)?
   ) async throws -> (Data, URLResponse) {
     isDataCalled = true
     dataCount += 1
 
-    self.url = url
+    self.request = request
     self.delegate = delegate
     return (Data(), URLResponse())
   }

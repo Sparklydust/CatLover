@@ -21,6 +21,13 @@ extension Container {
     self { ImageCacheService() }
   }
 
+  /// Factory for creating ``ImageLoaderService`` instances that conform to ``ImageLoaderProtocol``.
+  ///
+  /// Returns a new ``ImageLoaderService`` instance for caching images.
+  var imageLoader: Factory<any ImageLoaderProtocol> {
+    self { ImageLoaderService() }
+  }
+
   /// Factory for creating server instances that conform to ``ServerProtocol``.
   ///
   /// Returns a new ``ServerService`` instance for handling server requests.

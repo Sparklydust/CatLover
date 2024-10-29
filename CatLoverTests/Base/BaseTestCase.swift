@@ -10,16 +10,19 @@ class BaseTestCase: @unchecked Sendable {
 
   var fileManagerDummy: FileManagerDummy!
   var imageCacheDummy: ImageCacheDummy!
+  var imageLoaderDummy: ImageLoaderDummy!
   var serverDummy: ServerDummy!
   var urlSessionDummy: URLSessionDummy!
 
   var fileManagerMock: FileManagerMock!
   var imageCacheMock: ImageCacheMock!
+  var imageLoaderMock: ImageLoaderMock!
   var serverMock: ServerMock!
   var urlSessionMock: URLSessionMock!
 
   var fileManagerSpy: FileManagerSpy!
   var imageCachesSpy: ImageCacheSpy!
+  var imageLoaderSpy: ImageLoaderSpy!
   var serverSpy: ServerSpy!
   var urlSessionSpy: URLSessionSpy!
 
@@ -40,16 +43,19 @@ extension BaseTestCase {
   private func setupDoubles() {
     fileManagerDummy = FileManagerDummy()
     imageCacheDummy = ImageCacheDummy()
+    imageLoaderDummy = ImageLoaderDummy()
     serverDummy = ServerDummy()
     urlSessionDummy = URLSessionDummy()
 
     fileManagerMock = FileManagerMock()
     imageCacheMock = ImageCacheMock()
+    imageLoaderMock = ImageLoaderMock()
     serverMock = ServerMock(urlSessionMock: urlSessionDummy)
     urlSessionMock = URLSessionMock()
 
     fileManagerSpy = FileManagerSpy()
     imageCachesSpy = ImageCacheSpy()
+    imageLoaderSpy = ImageLoaderSpy()
     serverSpy = ServerSpy()
     urlSessionSpy = URLSessionSpy()
   }
@@ -63,6 +69,7 @@ extension BaseTestCase {
     Container.shared.reset()
     Container.shared.fileManager.register { self.fileManagerDummy }
     Container.shared.imageCache.register { self.imageCacheDummy }
+    Container.shared.imageLoader.register { self.imageLoaderDummy }
     Container.shared.urlSession.register { self.urlSessionDummy }
     Container.shared.server.register { self.serverDummy }
   }
@@ -72,16 +79,19 @@ extension BaseTestCase {
     serverDummy = .none
     urlSessionDummy = .none
     imageCacheDummy = .none
+    imageCacheDummy = .none
     fileManagerDummy = .none
 
     serverMock = .none
     urlSessionMock = .none
     imageCacheMock = .none
+    imageLoaderMock = .none
     fileManagerMock = .none
 
     serverSpy = .none
     urlSessionSpy = .none
     imageCachesSpy = .none
+    imageLoaderSpy = .none
     fileManagerSpy = .none
   }
 }

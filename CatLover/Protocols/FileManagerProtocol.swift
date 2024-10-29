@@ -4,7 +4,7 @@
 
 import Foundation
 
-/// Add URLSessionProtocol on top of ``URLSession`` to reduce the dependency for testing.
+/// Add FileManagerProtocol on top of ``FileManager`` to reduce the dependency for testing.
 extension FileManager: FileManagerProtocol {
   // Intentionally empty
 }

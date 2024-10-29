@@ -9,7 +9,7 @@ final class ImageCacheMock: ImageCacheProtocol {
   // Mock values
   var dataStub: [String: Data] = [:]
 
-  enum ImageCacheSpyError: Error {
+  enum ImageCacheMockError: Error {
     case invalidData
   }
 
@@ -20,7 +20,7 @@ final class ImageCacheMock: ImageCacheProtocol {
 
   func read(name: String) async throws -> Data {
     guard let data = dataStub[name]
-    else { throw ImageCacheSpyError.invalidData }
+    else { throw ImageCacheMockError.invalidData }
     return data
   }
 }

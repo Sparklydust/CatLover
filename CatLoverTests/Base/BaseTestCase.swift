@@ -78,20 +78,20 @@ extension BaseTestCase {
   private func tearDownDoubles() {
     serverDummy = .none
     urlSessionDummy = .none
-    imageCacheDummy = .none
-    imageCacheDummy = .none
     fileManagerDummy = .none
+    imageLoaderDummy = .none
+    imageCacheDummy = .none
 
     serverMock = .none
     urlSessionMock = .none
-    imageCacheMock = .none
-    imageLoaderMock = .none
     fileManagerMock = .none
+    imageLoaderMock = .none
+    imageCacheMock = .none
 
     serverSpy = .none
     urlSessionSpy = .none
-    imageCacheSpy = .none
-    imageLoaderSpy = .none
     fileManagerSpy = .none
+    imageLoaderSpy = .none
+    imageCacheSpy = .none
   }
 }

@@ -2,6 +2,7 @@
 // Copyright © 2024 and confidential to CatLover. All rights reserved.
 //
 
+import Factory
 import Testing
 @testable import CatLover
 
@@ -41,24 +42,61 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   }
 
   // MARK: - Server Request
-  @Test func serverRequest_breedsDataWithSuccess_breedsValueIsNotEmpty() {
-    #expect(false == true, "Test not yet implemented.")
+  @Test func serverRequest_breedsDataWithSuccess_breedsValueIsNotEmpty() async throws {
+    serverMock = try TestTool.serverMock(data: .breedsListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+
+    await sut.getBreeds()
+    let result = sut.breeds.isEmpty
+
+    #expect(result == false)
   }
 
-  @Test func serverRequest_breedsDataWithError_breedsValueIsEmpty() {
-    #expect(false == true, "Test not yet implemented.")
+  @Test func serverRequest_breedsDataWithError_breedsValueIsEmpty() async throws {
+    serverMock = try TestTool.serverMock(error: .requestFails)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+
+    await sut.getBreeds()
+    let result = sut.breeds.isEmpty
+
+    #expect(result == true)
   }
 
-  @Test func serverRequest_startsRequestingData_isLoadingIsTrue() {
-    #expect(false == true, "Test not yet implemented.")
+  @Test func serverRequest_startsRequestingData_isLoadingIsTrue() async throws {
+    serverMock = try TestTool.serverMock(data: .breedsListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+
+    serverMock.onPerformAsyncAwait = {
+      let result = self.sut.isLoading
+
+      #expect(result == true)
+    }
+    await sut.getBreeds()
   }
 
-  @Test func serverRequest_finishRequestingDataWithSuccess_isLoadingIsFalse() {
-    #expect(false == true, "Test not yet implemented.")
+  @Test func serverRequest_finishRequestingDataWithSuccess_isLoadingIsFalse() async throws {
+    serverMock = try TestTool.serverMock(data: .breedsListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+
+    await sut.getBreeds()
+    let result = sut.isLoading
+
+    #expect(result == false)
   }
 
-  @Test func serverRequest_finishRequestingDataWithError_isLoadingIsFalse() {
-    #expect(false == true, "Test not yet implemented.")
+  @Test func serverRequest_finishRequestingDataWithError_isLoadingIsFalse() async throws {
+    serverMock = try TestTool.serverMock(error: .requestFails)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+
+    await sut.getBreeds()
+    let result = sut.isLoading
+
+    #expect(result == false)
   }
 
   @Test func serverRequest_isSuccessful_dataAreSavedWithinBreedEntity() {

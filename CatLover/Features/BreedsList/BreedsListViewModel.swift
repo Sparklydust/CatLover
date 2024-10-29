@@ -4,6 +4,7 @@
 
 import Factory
 import Foundation
+import SwiftData
 
 @Observable final class BreedsListViewModel {
 
@@ -17,15 +18,25 @@ import Foundation
 // MARK: - Server Request
 extension BreedsListViewModel {
 
-  func getBreeds() async {
+  @MainActor func getBreeds() async {
     isLoading = true
     defer { isLoading = false }
 
     do {
       let data = try await server.get([BreedData].self, atEndpoint: .breedsList)
       breeds = data.map { BreedModel(with: $0) }
+      data.forEach { BreedEntity.modelContext.insert(BreedEntity(with: $0)) }
     } catch {
-      // Intentionally empty
+      loadCachedBreeds()
     }
+  }
+
+  @MainActor private func loadCachedBreeds() {
+    try? BreedEntity
+      .modelContext
+      .fetch(FetchDescriptor<BreedEntity>())
+      .forEach { breeds.append(BreedModel(with: $0)) }
+    guard breeds.isEmpty else { return }
+    showError = true
   }
 }

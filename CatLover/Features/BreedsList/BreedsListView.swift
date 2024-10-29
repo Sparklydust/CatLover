@@ -9,7 +9,7 @@ struct BreedsListView: View {
   @State private var vm = BreedsListViewModel()
 
   var body: some View {
-    Text("BreedsListView")
+    Image(.launchScreenV1)
   }
 }
 

@@ -11,7 +11,7 @@ extension Container {
   ///
   /// Returns a new ``FileManager`` instance for device file manager to cache data.
   var fileManager: Factory<any FileManagerProtocol> {
-    self { FileManager() }
+    self { FileManager.default }
   }
 
   /// Factory for creating ``ImageCacheService`` instances that conform to ``ImageCacheProtocol``.

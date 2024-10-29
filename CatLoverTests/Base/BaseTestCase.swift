@@ -38,7 +38,7 @@ extension BaseTestCase {
   /// Setup the doubles present in the project to add them within a Factory Container when needed
   /// in unit tests.
   private func setupDoubles() {
-    fileManagerSpy = FileManagerSpy()
+    fileManagerDummy = FileManagerDummy()
     imageCacheDummy = ImageCacheDummy()
     serverDummy = ServerDummy()
     urlSessionDummy = URLSessionDummy()

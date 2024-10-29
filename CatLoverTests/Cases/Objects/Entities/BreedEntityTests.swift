@@ -24,4 +24,19 @@ final class BreedEntityTests {
     sut = .none
     container = .none
   }
+
+  @Test func initializedWithBreedData_valuesAreCorrectlySet() throws {
+    let expected = BreedData.fake()
+    sut = BreedEntity(with: expected)
+
+    let result = try #require(sut)
+
+    #expect(result.breedID == expected.id)
+    #expect(result.name == expected.name)
+    #expect(result.origin == expected.origin)
+    #expect(result.temperament == expected.temperament)
+    #expect(result.info == expected.description)
+    #expect(result.lifeSpan == expected.lifeSpan)
+    #expect(result.imageURL == expected.image?.url)
+  }
 }

@@ -8,9 +8,21 @@ import SwiftData
 @Model final class BreedEntity {
 
   @Attribute(.unique) var breedID: String
+  var name: String
+  var origin: String
+  var temperament: String
+  var info: String
+  var lifeSpan: String
+  var imageURL: String?
 
   init(with data: BreedData) {
     self.breedID = data.id
+    self.name = data.name
+    self.origin = data.origin
+    self.temperament = data.temperament
+    self.info = data.description
+    self.lifeSpan = data.lifeSpan
+    self.imageURL = data.image?.url
   }
 }
 

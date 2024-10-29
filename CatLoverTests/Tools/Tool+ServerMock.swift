@@ -71,6 +71,10 @@ struct TestTool {
       headerFields: .none
     )!
 
-    return URLSessionMock(data: dataResponse, response: response, error: error)
+    return URLSessionMock(
+      dataStub: dataResponse,
+      responseStub: response,
+      errorStub: error
+    )
   }
 }

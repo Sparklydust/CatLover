@@ -7,21 +7,30 @@ import Foundation
 final class URLSessionSpy: URLSessionProtocol {
 
   // Spy values
-  var isDataCalled = false
-  var dataCount: Int = .zero
+  var isDataRequestCalled = false
+  var isDataURLCalled = false
+  var dataRequestCount: Int = .zero
+  var dataURLCount: Int = .zero
   var request: URLRequest?
   var delegate: (any URLSessionTaskDelegate)?
+  var url: URL?
 
   // Protocol requirements
   func data(
     for request: URLRequest,
     delegate: (any URLSessionTaskDelegate)?
   ) async throws -> (Data, URLResponse) {
-    isDataCalled = true
-    dataCount += 1
-
+    isDataRequestCalled = true
+    dataRequestCount += 1
     self.request = request
     self.delegate = delegate
+    return (Data(), URLResponse())
+  }
+
+  func data(from url: URL) async throws -> (Data, URLResponse) {
+    isDataURLCalled = true
+    dataURLCount += 1
+    self.url = url
     return (Data(), URLResponse())
   }
 }

@@ -13,4 +13,8 @@ final class URLSessionDummy: URLSessionProtocol {
   async throws -> (Data, URLResponse) {
     (Data(), URLResponse())
   }
+
+  func data(from url: URL) async throws -> (Data, URLResponse) {
+    (Data(), URLResponse())
+  }
 }

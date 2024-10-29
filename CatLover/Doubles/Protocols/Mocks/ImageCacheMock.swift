@@ -7,15 +7,20 @@ import Foundation
 final class ImageCacheMock: ImageCacheProtocol {
 
   // Mock values
-  var writtenDataStub: [String: Data] = [:]
-  var dataStub: Data?
+  var dataStub: [String: Data] = [:]
+
+  enum ImageCacheSpyError: Error {
+    case invalidData
+  }
 
   // Protocol requirements
   func write(_ data: Data, name: String) async throws {
-    writtenDataStub[name] = data
+    dataStub[name] = data
   }
 
   func read(name: String) async throws -> Data {
-    writtenDataStub[name] ?? Data()
+    guard let data = dataStub[name]
+    else { throw ImageCacheSpyError.invalidData }
+    return data
   }
 }

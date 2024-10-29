@@ -7,18 +7,18 @@ import Foundation
 final class URLSessionMock: URLSessionProtocol {
 
   // Mock values
-  var data: Data?
-  var response: URLResponse?
-  var error: ServerError?
+  var dataStub: Data? = .none
+  var responseStub: URLResponse? = .none
+  var errorStub: ServerError? = .none
 
   init(
     data: Data? = .none,
     response: URLResponse? = .none,
     error: ServerError? = .none
   ) {
-    self.data = data
-    self.response = response
-    self.error = error
+    dataStub = data
+    responseStub = response
+    errorStub = error
   }
 
   // Protocol requirements
@@ -26,11 +26,20 @@ final class URLSessionMock: URLSessionProtocol {
     for request: URLRequest,
     delegate: (any URLSessionTaskDelegate)?
   ) async throws -> (Data, URLResponse) {
-    guard error == .none,
-          let data = data,
-          let response = response
-    else { throw error ?? .requestFails }
+    guard errorStub == .none,
+          let dataStub,
+          let responseStub
+    else { throw errorStub ?? .requestFails }
 
-    return (data, response)
+    return (dataStub, responseStub)
+  }
+
+  func data(from url: URL) async throws -> (Data, URLResponse) {
+    guard errorStub == .none,
+          let dataStub,
+          let responseStub
+    else { throw errorStub ?? .requestFails }
+
+    return (dataStub, responseStub)
   }
 }

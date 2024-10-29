@@ -14,6 +14,10 @@ final class ImageCacheSpy: ImageCacheProtocol {
   var data: Data?
   var name: String?
 
+  enum ImageCacheSpyError: Error {
+    case invalidData
+  }
+
   // Protocol requirements
   func write(_ data: Data, name: String) async throws {
     isWriteCalled = true
@@ -26,6 +30,7 @@ final class ImageCacheSpy: ImageCacheProtocol {
     isReadCalled = true
     readCount += 1
     self.name = name
-    return Data()
+    guard let data else { throw ImageCacheSpyError.invalidData }
+    return data
   }
 }

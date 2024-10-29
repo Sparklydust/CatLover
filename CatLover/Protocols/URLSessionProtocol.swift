@@ -28,6 +28,15 @@ protocol URLSessionProtocol {
     for request: URLRequest,
     delegate: (any URLSessionTaskDelegate)?
   ) async throws -> (Data, URLResponse)
+
+  /// Retrieves the contents of a URL and delivers the data asynchronously.
+  ///
+  /// Use this method to wait until the session finishes transferring data and receive it in a single
+  /// Data instance.
+  /// - Parameter url: The URL to retrieve.
+  /// - Returns: An asynchronously-delivered tuple that contains the URL contents as a Data
+  /// instance, and a URLResponse.
+  func data(from url: URL) async throws -> (Data, URLResponse)
 }
 
 extension URLSessionProtocol {

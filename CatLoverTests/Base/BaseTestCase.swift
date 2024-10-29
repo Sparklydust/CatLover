@@ -21,7 +21,7 @@ class BaseTestCase: @unchecked Sendable {
   var urlSessionMock: URLSessionMock!
 
   var fileManagerSpy: FileManagerSpy!
-  var imageCachesSpy: ImageCacheSpy!
+  var imageCacheSpy: ImageCacheSpy!
   var imageLoaderSpy: ImageLoaderSpy!
   var serverSpy: ServerSpy!
   var urlSessionSpy: URLSessionSpy!
@@ -54,7 +54,7 @@ extension BaseTestCase {
     urlSessionMock = URLSessionMock()
 
     fileManagerSpy = FileManagerSpy()
-    imageCachesSpy = ImageCacheSpy()
+    imageCacheSpy = ImageCacheSpy()
     imageLoaderSpy = ImageLoaderSpy()
     serverSpy = ServerSpy()
     urlSessionSpy = URLSessionSpy()
@@ -90,7 +90,7 @@ extension BaseTestCase {
 
     serverSpy = .none
     urlSessionSpy = .none
-    imageCachesSpy = .none
+    imageCacheSpy = .none
     imageLoaderSpy = .none
     fileManagerSpy = .none
   }

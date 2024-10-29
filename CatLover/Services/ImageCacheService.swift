@@ -19,10 +19,20 @@ final actor ImageCacheService: ImageCacheProtocol {
   private let memoryLimit = Int(1e+9) // 1GB
   private let inMemoryCache = NSCache<NSString, NSData>()
 
+  /// Defines the storage mode for `ImageCacheService`.
+   /// - `disk`: Caches data on disk, allowing persistence between app sessions.
+   /// - `inMemory`: Caches data only in memory, suitable for temporary storage or testing.
+  enum StorageMode {
+    case disk
+    case inMemory
+  }
+
   @Injected(\.fileManager) private var fileManager
 
-  init() {
-    Task { await configureCacheDirectory() }
+  init(storageMode: StorageMode = .disk) {
+    if storageMode == .disk {
+      Task { await configureCacheDirectory() }
+    }
   }
 }
 

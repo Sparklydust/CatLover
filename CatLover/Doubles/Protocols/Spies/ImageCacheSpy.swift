@@ -9,8 +9,10 @@ final class ImageCacheSpy: ImageCacheProtocol {
   // Spy values
   var isWriteCalled = false
   var isReadCalled = false
+  var isClearInMemoryCalled = false
   var writeCount: Int = .zero
   var readCount: Int = .zero
+  var clearInMemoryCount: Int = .zero
   var data: Data?
   var name: String?
 

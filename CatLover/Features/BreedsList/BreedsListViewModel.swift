@@ -19,6 +19,9 @@ import UIKit
 // MARK: - Image Loader
 extension BreedsListViewModel {
 
+  /// Loads an image from the provided URL string.
+  /// - Parameter urlString: The URL of the image to be fetched.
+  /// - Returns: The loaded `UIImage` if successful, or `nil` if the load fails.
   @MainActor func loadImage(urlString: String) async -> UIImage? {
     await imageLoader.loadImage(urlString: urlString)
   }
@@ -27,9 +30,11 @@ extension BreedsListViewModel {
 // MARK: - Server Request
 extension BreedsListViewModel {
 
+  /// Fetches the list of breeds from the server and updates the local state.
   @MainActor func getBreeds() async {
     isLoading = true
     defer { isLoading = false }
+    breeds.removeAll()
 
     do {
       let data = try await server.get([BreedData].self, atEndpoint: .breedsList)

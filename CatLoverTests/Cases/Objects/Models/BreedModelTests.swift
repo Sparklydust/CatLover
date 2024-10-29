@@ -21,7 +21,6 @@ struct BreedModelTests {
     #expect(result.imageURL == expected.image?.url)
   }
 
-
   @Test func initialization_withBreedEntity_allBreedModelValuesAreSet() {
     let expected: BreedEntity = .fake()
 

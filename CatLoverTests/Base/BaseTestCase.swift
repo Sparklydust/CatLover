@@ -106,6 +106,7 @@ extension BaseTestCase {
   private func setUpEntities() {
     Task { @MainActor in
       BreedEntity.internalFakeContext = BreedEntity.fakeContext()
+      BreedImageEntity.internalFakeContext = BreedEntity.fakeContext()
     }
   }
 
@@ -113,6 +114,7 @@ extension BaseTestCase {
   private func tearDownEntities() {
     Task { @MainActor in
       BreedEntity.internalFakeContext = .none
+      BreedImageEntity.internalFakeContext = .none
     }
   }
 }

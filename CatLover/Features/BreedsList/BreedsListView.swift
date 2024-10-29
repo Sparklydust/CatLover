@@ -4,13 +4,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct BreedsListView: View {
+
+  @State private var vm = BreedsListViewModel()
 
   var body: some View {
-    BreedsListView()
+    Text("BreedsListView")
   }
 }
 
 #Preview {
-  ContentView()
+  BreedsListView()
 }

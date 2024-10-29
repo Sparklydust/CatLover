@@ -4,7 +4,7 @@
 
 import UIKit
 
-final class ImageLoaderSpy: ImageLoaderProtocol {
+final class ImageLoaderSpy: ImageLoaderProtocol, @unchecked Sendable {
 
   // Spy values
   var loadImageIsCalled = false

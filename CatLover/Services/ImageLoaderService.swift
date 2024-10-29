@@ -5,7 +5,7 @@
 import Factory
 import UIKit
 
-final class ImageLoaderService: ImageLoaderProtocol {
+final actor ImageLoaderService: ImageLoaderProtocol {
 
   @Injected(\.imageCache) private var imageCache
   @Injected(\.urlSession) private var urlSession

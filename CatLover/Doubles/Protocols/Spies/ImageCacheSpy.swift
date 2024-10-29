@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class ImageCacheSpy: ImageCacheProtocol {
+final class ImageCacheSpy: ImageCacheProtocol, @unchecked Sendable {
 
   // Spy values
   var isWriteCalled = false

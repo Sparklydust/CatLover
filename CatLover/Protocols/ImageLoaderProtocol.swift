@@ -5,7 +5,7 @@
 import UIKit
 
 /// Protocol defining an interface for loading images from a URL.
-protocol ImageLoaderProtocol {
+protocol ImageLoaderProtocol: Sendable {
 
   /// Loads an image from the specified URL string.
   /// - Parameter urlString: The URL string of the image to load.

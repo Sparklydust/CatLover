@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class URLSessionMock: URLSessionProtocol {
+final class URLSessionMock: URLSessionProtocol, @unchecked Sendable {
 
   // Mock values
   var dataStub: Data? = .none

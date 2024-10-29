@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class ServerMock: ServerProtocol {
+final class ServerMock: ServerProtocol, @unchecked Sendable {
 
   // Mock values
   /// Passed inside ``ServerMock`` protocol methods to simulate work being performed during

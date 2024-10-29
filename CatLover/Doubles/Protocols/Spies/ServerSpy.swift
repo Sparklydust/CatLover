@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class ServerSpy: ServerProtocol {
+final class ServerSpy: ServerProtocol, @unchecked Sendable {
 
   // Spy values
   var isGetCalled = false

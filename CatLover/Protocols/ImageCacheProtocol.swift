@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol ImageCacheProtocol {
+protocol ImageCacheProtocol: Sendable {
 
   /// Writes image data to disk storage with the specified file name.
   ///

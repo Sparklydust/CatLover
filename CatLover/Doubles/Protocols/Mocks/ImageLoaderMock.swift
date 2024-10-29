@@ -4,7 +4,7 @@
 
 import UIKit
 
-final class ImageLoaderMock: ImageLoaderProtocol {
+final class ImageLoaderMock: ImageLoaderProtocol, @unchecked Sendable {
 
   // Mock values
   var imageStub: UIImage?

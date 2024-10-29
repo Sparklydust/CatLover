@@ -11,7 +11,7 @@ extension URLSession: URLSessionProtocol {
 
 /// Acts as an abstraction on top of ``URLSession`` to reduce the dependency for testing and enable
 /// injection through the ``Injected`` factory container.
-protocol URLSessionProtocol {
+protocol URLSessionProtocol: Sendable {
 
   /// Retrieves the contents of a URL and delivers the data asynchronously.
   ///

@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class ImageCacheMock: ImageCacheProtocol {
+final class ImageCacheMock: ImageCacheProtocol, @unchecked Sendable {
 
   // Mock values
   var dataStub: [String: Data] = [:]

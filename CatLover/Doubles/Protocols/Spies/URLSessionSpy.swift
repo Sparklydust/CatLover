@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class URLSessionSpy: URLSessionProtocol {
+final class URLSessionSpy: URLSessionProtocol, @unchecked Sendable {
 
   // Spy values
   var isDataRequestCalled = false

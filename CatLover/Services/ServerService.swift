@@ -5,7 +5,7 @@
 import Factory
 import Foundation
 
-final class ServerService: ServerProtocol {
+final actor ServerService: ServerProtocol {
 
   @Injected(\.urlSession) private var urlSession
 }
@@ -13,7 +13,7 @@ final class ServerService: ServerProtocol {
 // MARK: - Requests
 extension ServerService {
 
-  func get<T: Codable>(
+  func get<T: Codable & Sendable>(
     _ data: T.Type,
     atEndpoint endpoint: ServerEndpoint
   ) async throws -> T {

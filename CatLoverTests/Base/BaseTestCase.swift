@@ -29,13 +29,16 @@ class BaseTestCase: @unchecked Sendable {
   init() {
     setupDoubles()
     setUpFactoryContainers()
+    setUpEntities()
   }
 
   deinit {
     tearDownDoubles()
+    tearDownEntities()
   }
 }
 
+// MARK: - Doubles
 extension BaseTestCase {
 
   /// Setup the doubles present in the project to add them within a Factory Container when needed
@@ -93,5 +96,25 @@ extension BaseTestCase {
     fileManagerSpy = .none
     imageLoaderSpy = .none
     imageCacheSpy = .none
+  }
+}
+
+// MARK: - Entities
+extension BaseTestCase {
+
+  /// Sets up SwiftData entities for in-memory data, ensuring that no data is persisted during tests.
+  private func setUpEntities() {
+    Task { @MainActor in
+      BreedEntity.internalFakeContext = BreedEntity.fakeContext()
+      BreedImageEntity.internalFakeContext = BreedEntity.fakeContext()
+    }
+  }
+
+  /// Clears all in-memory entity contexts after tests are completed.
+  private func tearDownEntities() {
+    Task { @MainActor in
+      BreedEntity.internalFakeContext = .none
+      BreedImageEntity.internalFakeContext = .none
+    }
   }
 }

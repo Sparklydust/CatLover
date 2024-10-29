@@ -42,6 +42,40 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
     #expect(result == false)
   }
 
+  // MARK: - Image Loader
+  @MainActor
+  @Test func imageLoader_requestAnImage_imageLoaderIsCalled() async {
+    Container.shared.imageLoader.register { self.imageLoaderSpy }
+    sut = BreedsListViewModel()
+
+    _ = await sut.loadImage(urlString: "")
+    let result = imageLoaderSpy.loadImageIsCalled
+
+    #expect(result == true)
+  }
+
+  @MainActor
+  @Test func imageLoader_requestAnImageIsSuccessful_imageIsReturned() async {
+    imageLoaderMock.imageStub = .imBreedFake01
+    Container.shared.imageLoader.register { self.imageLoaderMock }
+    sut = BreedsListViewModel()
+
+    let result = await sut.loadImage(urlString: "")
+
+    #expect(result != .none)
+  }
+
+  @MainActor
+  @Test func imageLoader_requestAnImageFails_nilIsReturned() async {
+    imageLoaderMock.imageStub = .none
+    Container.shared.imageLoader.register { self.imageLoaderMock }
+    sut = BreedsListViewModel()
+
+    let result = await sut.loadImage(urlString: "")
+
+    #expect(result == .none)
+  }
+
   // MARK: - Server Request
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
@@ -162,18 +196,5 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
     let result = sut.breeds.isEmpty
 
     #expect(result == false)
-  }
-
-  // MARK: - Image Loader
-  @Test func imageLoader_requestAnImage_imageLoaderIsCalled() {
-    #expect(false == true, "Test not yet implemented.")
-  }
-
-  @Test func imageLoader_requestAnImageIsSuccessful_imageIsReturned() {
-    #expect(false == true, "Test not yet implemented.")
-  }
-
-  @Test func imageLoader_requestAnImageFails_nilIsReturned() {
-    #expect(false == true, "Test not yet implemented.")
   }
 }

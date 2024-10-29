@@ -21,15 +21,23 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
 
   // MARK: - Initialization
   @Test func initialization_breeds_isEqualToEmptyArrayOfBreedModel() {
-    #expect(false == true, "Test not yet implemented.")
+    let expected: [BreedModel] = []
+
+    let result = sut.breeds
+
+    #expect(result == expected)
   }
 
   @Test func initialization_isLoading_isFalse() {
-    #expect(false == true, "Test not yet implemented.")
+    let result = sut.isLoading
+
+    #expect(result == false)
   }
 
   @Test func initialization_showError_isFalse() {
-    #expect(false == true, "Test not yet implemented.")
+    let result = sut.showError
+
+    #expect(result == false)
   }
 
   // MARK: - Server Request

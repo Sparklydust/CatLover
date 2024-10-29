@@ -5,5 +5,8 @@
 import Foundation
 
 @Observable final class BreedsListViewModel {
-  // Intentionally empty
+
+  var breeds: [BreedModel] = []
+  var isLoading = false
+  var showError = false
 }

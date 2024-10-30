@@ -40,4 +40,67 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
 
     #expect(result == false)
   }
+
+  // MARK: - Server Request
+  @MainActor
+  @Test func serverRequest_breedImageDataWithSuccess_breedImagesValueIsNotEmpty() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsImagesListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedDetailsViewModel()
+
+    await sut.getBreedImages(for: BreedModel.fake().id)
+    let result = sut.breedImages.isEmpty
+
+    #expect(result == false)
+  }
+
+  @MainActor
+  @Test func serverRequest_breedImageDataWithError_breedImagesValueIsEmpty() async throws {
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedDetailsViewModel()
+
+    await sut.getBreedImages(for: BreedModel.fake().id)
+    let result = sut.breedImages.isEmpty
+
+    #expect(result == true)
+  }
+
+  @MainActor
+  @Test func serverRequest_startsRequestingData_isLoadingIsTrue() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsImagesListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedDetailsViewModel()
+
+    serverMock.onPerformAsyncAwait = {
+      let result = self.sut.isLoading
+
+      #expect(result == true)
+    }
+    await sut.getBreedImages(for: BreedModel.fake().id)
+  }
+
+  @MainActor
+  @Test func serverRequest_finishRequestingDataWithSuccess_isLoadingIsFalse() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsImagesListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedDetailsViewModel()
+
+    await sut.getBreedImages(for: BreedModel.fake().id)
+    let result = sut.isLoading
+
+    #expect(result == false)
+  }
+
+  @MainActor
+  @Test func serverRequest_finishRequestingDataWithError_isLoadingIsFalse() async throws {
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedDetailsViewModel()
+
+    await sut.getBreedImages(for: BreedModel.fake().id)
+    let result = sut.isLoading
+
+    #expect(result == false)
+  }
 }

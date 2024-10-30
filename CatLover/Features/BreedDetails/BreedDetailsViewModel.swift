@@ -10,3 +10,11 @@ import Foundation
   var isLoading = false
   var showError = false
 }
+
+// MARK: - Server Request
+extension BreedDetailsViewModel {
+
+  @MainActor func getBreedImages(for breedID: String) async {
+    // Intentionally empty
+  }
+}

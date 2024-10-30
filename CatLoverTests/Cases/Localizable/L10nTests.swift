@@ -16,7 +16,7 @@ struct L10nTests {
   }
 
   @Test func breedDetailsLifespan_returnsAssociatedTranslation() {
-    let expected = "Lifespan: "
+    let expected = "Lifespan: %@ years"
 
     let result = L10n.breedDetailsLifespan
 

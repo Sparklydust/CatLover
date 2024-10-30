@@ -80,7 +80,7 @@ extension BreedCard {
       .truncationMode(.tail)
 
       if size == .large {
-        Text(L10n.breedDetailsLifespan + breed.lifeSpan)
+        Text(String(format: L10n.breedDetailsLifespan, arguments: [breed.lifeSpan]))
           .font(.footnote)
           .foregroundColor(.secondary)
           .padding(.top, 4)

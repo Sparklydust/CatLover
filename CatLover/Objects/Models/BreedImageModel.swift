@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct BreedImageModel {
+struct BreedImageModel: Equatable {
 
   let id: String
   let imageURL: String

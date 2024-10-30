@@ -19,4 +19,25 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
   deinit {
     sut = .none
   }
+
+  // MARK: - Initialization
+  @Test func initialization_breedImages_isEqualToEmptyArrayOfBreedImageModel() {
+    let expected: [BreedImageModel] = []
+
+    let result = sut.breedImages
+
+    #expect(result == expected)
+  }
+
+  @Test func initialization_isLoading_isFalse() {
+    let result = sut.isLoading
+
+    #expect(result == false)
+  }
+
+  @Test func initialization_showError_isFalse() {
+    let result = sut.showError
+
+    #expect(result == false)
+  }
 }

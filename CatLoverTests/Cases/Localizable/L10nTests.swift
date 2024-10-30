@@ -6,5 +6,12 @@ import Testing
 @testable import CatLover
 
 struct L10nTests {
-  // Intentionally empty
+
+  func breedsListNavBarTitle_returnsAssociatedTranslation() {
+    let expected = "Breeds"
+
+    let result = L10n.breedsListNavBarTitle
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
 }

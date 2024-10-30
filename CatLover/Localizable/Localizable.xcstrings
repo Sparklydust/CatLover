@@ -1,7 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "breedsListNavBarTitle" : {
+      "comment" : "The navigation bar title to populate cat breeds.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breeds"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }

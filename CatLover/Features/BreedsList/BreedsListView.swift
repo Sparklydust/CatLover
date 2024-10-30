@@ -9,7 +9,10 @@ struct BreedsListView: View {
   @State private var vm = BreedsListViewModel()
 
   var body: some View {
-    Image(.launchScreenV1)
+    NavigationStack {
+      Image(.launchScreenV1)
+        .navigationTitle(L10n.breedsListNavBarTitle)
+    }
   }
 }
 

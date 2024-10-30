@@ -12,6 +12,7 @@ struct ImagePlaceholder: View {
   var body: some View {
     Rectangle()
       .foregroundColor(.gray.opacity(opacity))
+      .clipShape(.rect(cornerRadius: 4))
       .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: opacity)
       .onAppear { opacity = 0.6 }
   }

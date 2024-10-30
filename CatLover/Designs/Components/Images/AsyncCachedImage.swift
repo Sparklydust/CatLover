@@ -9,7 +9,6 @@ import SwiftUI
 struct AsyncCachedImage: View {
 
   @State private var loader = ImageLoader()
-  @State private var opacity: Double = 0.3
   private let urlString: String?
 
   init(urlString: String?) {
@@ -23,6 +22,7 @@ struct AsyncCachedImage: View {
       } else if let uiImage = loader.uiImage {
         Image(uiImage: uiImage)
           .resizable()
+          .clipShape(.rect(cornerRadius: 4))
       } else {
         Image(systemName: "photo")
           .resizable()
@@ -43,12 +43,13 @@ struct AsyncCachedImage: View {
 
   func loadImage(urlString: String?) async {
     guard let urlString, !urlString.isEmpty else { return }
+
     isLoading = true
-    let image = await Task.detached(priority: .background) {
+    defer { isLoading = false }
+
+    uiImage = await Task.detached(priority: .background) {
       await self.imageLoader.loadImage(urlString: urlString)
     }.value
-    uiImage = image
-    isLoading = false
   }
 }
 

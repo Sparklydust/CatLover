@@ -8,7 +8,7 @@ import Testing
 struct L10nTests {
 
   func breedsListNavBarTitle_returnsAssociatedTranslation() {
-    let expected = "Breeds"
+    let expected = "Cat Breeds"
 
     let result = L10n.breedsListNavBarTitle
 

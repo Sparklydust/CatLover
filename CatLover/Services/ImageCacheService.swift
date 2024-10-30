@@ -47,6 +47,8 @@ extension ImageCacheService {
   /// Configure `cacheDirectory` after the actor is initialized.
   private func configureCacheDirectory() async {
     inMemoryCache.totalCostLimit = inMemoryCacheLimit
+    inMemoryCache.countLimit = 100
+
     let directory = fileManager
       .urls(for: .cachesDirectory, in: .userDomainMask)[.zero]
       .appendingPathComponent("clipshop_database", isDirectory: true)

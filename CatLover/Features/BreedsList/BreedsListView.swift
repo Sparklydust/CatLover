@@ -14,16 +14,15 @@ struct BreedsListView: View {
       ScrollView {
         LazyVStack {
           ForEach(vm.breeds, id: \.id) { breed in
-            HStack {
-              BreedCard(breed: breed)
-                .padding(.horizontal)
-            }
+            BreedCard(breed: breed)
+              .padding(.horizontal)
           }
         }
       }
       .navigationTitle(L10n.breedsListNavBarTitle)
     }
-    .task { await vm.getBreeds() }
+    .firstTask { await vm.getBreeds() }
+    .overlay { if vm.isLoading { LTProgressView() }}
   }
 }
 

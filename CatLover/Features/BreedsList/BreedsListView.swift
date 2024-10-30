@@ -14,8 +14,11 @@ struct BreedsListView: View {
       ScrollView {
         LazyVStack {
           ForEach(vm.filteredBreeds, id: \.id) { breed in
-            BreedCard(breed: breed)
-              .padding(.horizontal)
+            NavigationLink {
+              BreedDetailsView(breed: breed)
+            } label: {
+              BreedCard(breed: breed)
+            }
           }
         }
       }

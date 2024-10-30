@@ -9,6 +9,6 @@ struct BreedDetailsView: View {
   let breed: BreedModel
 
   var body: some View {
-    Text(breed.description)
+    Text(breed.id)
   }
 }

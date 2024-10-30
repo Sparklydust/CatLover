@@ -13,17 +13,15 @@ struct BreedCard: View {
 
   var body: some View {
     HStack(alignment: .top, spacing: 12) {
-      VStack {
-        AsyncCachedImage(urlString: breed.imageURL)
-          .frame(width: 80, height: 80)
-          .shadow(radius: 4)
-      }
+      AsyncCachedImage(urlString: breed.imageURL)
+        .frame(width: 80, height: 80)
+        .shadow(radius: 4)
 
       VStack(alignment: .leading, spacing: 6) {
         Text(breed.name)
           .font(.headline)
           .foregroundColor(.accentColor)
-
+        
         Text(breed.origin)
           .font(.subheadline)
           .foregroundColor(.secondary)

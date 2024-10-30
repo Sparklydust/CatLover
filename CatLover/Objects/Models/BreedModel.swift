@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct BreedModel: Equatable, Hashable {
+struct BreedModel: Equatable {
 
   let id: String
   let name: String

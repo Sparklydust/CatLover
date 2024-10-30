@@ -9,10 +9,30 @@ import UIKit
 @Observable final class BreedsListViewModel {
 
   @ObservationIgnored @Injected(\.server) private var server
+  private var breeds: [BreedModel] = [] {
+    didSet { updateFilteredBreeds() }
+  }
 
-  var breeds: [BreedModel] = []
+  var filteredBreeds: [BreedModel] = []
   var isLoading = false
+  var searchText = String() {
+    didSet { updateFilteredBreeds() }
+  }
   var showError = false
+}
+
+// MARK: - Search
+extension BreedsListViewModel {
+
+  private func updateFilteredBreeds() {
+    if searchText.isEmpty {
+      filteredBreeds = breeds
+    } else {
+      filteredBreeds = breeds.filter {
+        $0.name.lowercased().contains(searchText.lowercased())
+      }
+    }
+  }
 }
 
 // MARK: - Server Request

@@ -22,10 +22,10 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   }
 
   // MARK: - Initialization
-  @Test func initialization_breeds_isEqualToEmptyArrayOfBreedModel() {
+  @Test func initialization_filteredBreeds_isEqualToEmptyArrayOfBreedModel() {
     let expected: [BreedModel] = []
 
-    let result = sut.breeds
+    let result = sut.filteredBreeds
 
     #expect(result == expected)
   }
@@ -42,29 +42,82 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
     #expect(result == false)
   }
 
+  @Test func initialization_searchText_isEqualToEmptyString() {
+    let expected = String()
+
+    let result = sut.searchText
+
+    #expect(result == expected)
+  }
+
+  // MARK: - Search
+  @MainActor
+  @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
+  func initialization_noSearchText_returnsAllBreeds() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+    await sut.getBreeds()
+    let expected = 2
+
+    sut.searchText = String()
+    let result = sut.filteredBreeds.count
+
+    #expect(result == expected)
+  }
+
+  @MainActor
+  @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
+  func initialization_withSearchText_returnsMatchingBreeds() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+    await sut.getBreeds()
+    let expected = "Aegean"
+
+    sut.searchText = "aeg"
+    let result = try #require(sut.filteredBreeds.first?.name)
+
+    #expect(result == expected)
+  }
+
+  @MainActor
+  @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
+  func initialization_withSearchText_noMatchingBreeds() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+    await sut.getBreeds()
+
+    sut.searchText = "xyz"
+    let result = sut.filteredBreeds.isEmpty
+
+    #expect(result == true)
+  }
+
   // MARK: - Server Request
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
-  func serverRequest_breedsDataWithSuccess_breedsValueIsNotEmpty() async throws {
+  func serverRequest_breedsDataWithSuccess_filteredBreedsValueIsNotEmpty() async throws {
     serverMock = try FakeFactory.serverMock(data: .breedsListData)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
     await sut.getBreeds()
-    let result = sut.breeds.isEmpty
+    let result = sut.filteredBreeds.isEmpty
 
     #expect(result == false)
   }
 
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
-  func serverRequest_breedsDataWithError_breedsValueIsEmpty() async throws {
+  func serverRequest_breedsDataWithError_filteredBreedsValueIsEmpty() async throws {
     serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
     await sut.getBreeds()
-    let result = sut.breeds.isEmpty
+    let result = sut.filteredBreeds.isEmpty
 
     #expect(result == true)
   }
@@ -126,13 +179,13 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
 
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
-  func serverRequest_failsWithSavedBreedEntityDataEmpty_breedsValueIsEmpty() async throws {
+  func serverRequest_failsWithSavedBreedEntityDataEmpty_filteredBreedsValueIsEmpty() async throws {
     serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
     await sut.getBreeds()
-    let result = sut.breeds.isEmpty
+    let result = sut.filteredBreeds.isEmpty
 
     #expect(result == true)
   }
@@ -152,14 +205,14 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
 
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
-  func serverRequest_failsWithBreedEntitySavedDataNotEmpty_breedsValueIsNotEmpty() async throws {
+  func serverRequest_failsWithBreedEntitySavedDataNotEmpty_filteredBreedsValueIsNotEmpty() async throws {
     serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
     BreedEntity.modelContext.insert(BreedEntity.fake())
 
     await sut.getBreeds()
-    let result = sut.breeds.isEmpty
+    let result = sut.filteredBreeds.isEmpty
 
     #expect(result == false)
   }

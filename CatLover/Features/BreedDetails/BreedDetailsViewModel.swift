@@ -4,6 +4,7 @@
 
 import Factory
 import Foundation
+import SwiftData
 
 @Observable final class BreedDetailsViewModel {
 

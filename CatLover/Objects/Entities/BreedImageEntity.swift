@@ -9,10 +9,12 @@ import SwiftData
 
   @Attribute(.unique) var breedImageID: String
   var imageURL: String
+  var breedID: String
 
-  init(with data: BreedImageData) {
+  init(with data: BreedImageData, breedID: String) {
     self.breedImageID = data.id
     self.imageURL = data.url
+    self.breedID = breedID
   }
 }
 

@@ -14,7 +14,7 @@ enum ServerEndpoint {
   var url: URL? {
     switch self {
     case .breedImages(let breedID, let page, let limitPerPage):
-      URL(string: "\(ServerEndpoint.baseURL)/images/search?size=small&mime_types=jpg&format=json&breed_ids=\(breedID)&order=ASC&page=\(page)&limit=\(limitPerPage)")
+      URL(string: "\(ServerEndpoint.baseURL)/images/search?size=med&mime_types=jpg&format=json&breed_ids=\(breedID)&order=ASC&page=\(page)&limit=\(limitPerPage)")
     case .breedsList:
       URL(string: "\(ServerEndpoint.baseURL)/breeds")
     }

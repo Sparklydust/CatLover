@@ -23,13 +23,15 @@ struct BreedDetailsView: View {
         .fontWeight(.medium)
         .padding(.top)
 
-      LazyVGrid(columns: columns, spacing: 8) {
-        ForEach(vm.breedImages, id: \.id) { image in
-          AsyncCachedImage(urlString: image.url)
-            .task {
-              guard image.id == vm.breedImages.last?.id else { return }
-              await vm.getBreedImages(for: breed.id)
-            }
+      VStack {
+        LazyVGrid(columns: columns, spacing: 8) {
+          ForEach(vm.breedImages, id: \.id) { image in
+            AsyncCachedImage(urlString: image.url)
+              .task {
+                guard image.id == vm.breedImages.last?.id else { return }
+                await vm.getBreedImages(for: breed.id)
+              }
+          }
         }
         .padding(.horizontal)
 

@@ -20,7 +20,6 @@ struct BreedCard: View {
         HStack(alignment: .top, spacing: 12) {
           AsyncCachedImage(urlString: breed.imageURL)
             .frame(width: 80, height: 80)
-            .cornerRadius(12)
             .shadow(radius: 4)
 
           mainLayout

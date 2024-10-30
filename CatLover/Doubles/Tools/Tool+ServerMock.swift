@@ -3,10 +3,9 @@
 //
 
 import Foundation
-import Testing
-@testable import CatLover
 
-struct TestTool {
+/// A utility for creating mock services and data for testing and SwiftUI previews.
+struct FakeFactory {
 
   /// Mock ``ServerService`` with all needed parameters to create a fake api call response
   /// for ``ServerMock``.

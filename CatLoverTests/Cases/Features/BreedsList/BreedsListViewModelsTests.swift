@@ -80,7 +80,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_breedsDataWithSuccess_breedsValueIsNotEmpty() async throws {
-    serverMock = try TestTool.serverMock(data: .breedsListData)
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -93,7 +93,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_breedsDataWithError_breedsValueIsEmpty() async throws {
-    serverMock = try TestTool.serverMock(error: .requestFails)
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -106,7 +106,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_startsRequestingData_isLoadingIsTrue() async throws {
-    serverMock = try TestTool.serverMock(data: .breedsListData)
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -121,7 +121,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_finishRequestingDataWithSuccess_isLoadingIsFalse() async throws {
-    serverMock = try TestTool.serverMock(data: .breedsListData)
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -134,7 +134,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_finishRequestingDataWithError_isLoadingIsFalse() async throws {
-    serverMock = try TestTool.serverMock(error: .requestFails)
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -147,7 +147,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_isSuccessful_dataAreSavedWithinBreedEntity() async throws {
-    serverMock = try TestTool.serverMock(data: .breedsListData)
+    serverMock = try FakeFactory.serverMock(data: .breedsListData)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
     let fetchRequest = FetchDescriptor<BreedEntity>()
@@ -161,7 +161,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_failsWithSavedBreedEntityDataEmpty_breedsValueIsEmpty() async throws {
-    serverMock = try TestTool.serverMock(error: .requestFails)
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -174,7 +174,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_failsWithSavedBreedEntityDataEmpty_showErrorValueIsTrue() async throws {
-    serverMock = try TestTool.serverMock(error: .requestFails)
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
@@ -187,7 +187,7 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_failsWithBreedEntitySavedDataNotEmpty_breedsValueIsNotEmpty() async throws {
-    serverMock = try TestTool.serverMock(error: .requestFails)
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
     BreedEntity.modelContext.insert(BreedEntity.fake())

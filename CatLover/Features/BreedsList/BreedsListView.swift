@@ -18,7 +18,6 @@ struct BreedsListView: View {
               BreedDetailsView(breed: breed)
             } label: {
               BreedCard(breed: breed)
-                .padding(.horizontal)
             }
           }
         }

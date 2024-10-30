@@ -22,7 +22,7 @@ struct AsyncCachedImage: View {
       } else if let uiImage = loader.uiImage {
         Image(uiImage: uiImage)
           .resizable()
-          .clipShape(.rect(cornerRadius: 4))
+          .cornerRadius(6)
       } else {
         Image(systemName: "photo")
           .resizable()

@@ -26,7 +26,7 @@ struct BreedsListView: View {
       .searchable(text: $vm.searchText)
     }
     .firstTask { await vm.getBreeds() }
-    .overlay { if vm.isLoading { LTProgressView() }}
+    .overlay { if vm.isLoading { CLProgressView(size: .large) }}
   }
 }
 

@@ -28,6 +28,11 @@ struct BreedDetailsView: View {
               await vm.getBreedImages(for: breed.id)
             }
         }
+
+        if vm.isLoading {
+          CLProgressView(size: .medium)
+            .padding(.vertical)
+        }
       }
     }
     .navigationTitle(L10n.breedDetailsNavBarTitle)

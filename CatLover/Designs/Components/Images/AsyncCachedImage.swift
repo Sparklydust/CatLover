@@ -23,15 +23,14 @@ struct AsyncCachedImage: View {
       } else if let uiImage = loader.uiImage {
         Image(uiImage: uiImage)
           .resizable()
-          .scaledToFill()
       } else {
         Image(systemName: "photo")
           .resizable()
-          .scaledToFit()
           .foregroundStyle(.gray)
           .scaleEffect(0.6)
       }
     }
+    .scaledToFit()
     .task { await loader.loadImage(urlString: urlString) }
   }
 }

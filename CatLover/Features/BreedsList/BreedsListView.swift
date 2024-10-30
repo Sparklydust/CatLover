@@ -11,9 +11,19 @@ struct BreedsListView: View {
 
   var body: some View {
     NavigationStack {
-      Image(.launchScreenV1)
-        .navigationTitle(L10n.breedsListNavBarTitle)
+      ScrollView {
+        LazyVStack {
+          ForEach(vm.breeds, id: \.id) { breed in
+            HStack {
+              BreedCard(breed: breed)
+                .padding(.horizontal)
+            }
+          }
+        }
+      }
+      .navigationTitle(L10n.breedsListNavBarTitle)
     }
+    .task { await vm.getBreeds() }
   }
 }
 

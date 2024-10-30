@@ -17,7 +17,7 @@ struct BreedsListView: View {
             NavigationLink {
               BreedDetailsView(breed: breed)
             } label: {
-              BreedCard(breed: breed)
+              BreedCard(size: .medium, breed: breed)
             }
           }
         }

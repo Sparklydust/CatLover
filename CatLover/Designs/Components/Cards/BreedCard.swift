@@ -9,6 +9,7 @@ struct BreedCard: View {
 
   @Environment(\.colorScheme) private var colorScheme
 
+  let size: SizeType
   let breed: BreedModel
 
   var body: some View {
@@ -52,6 +53,17 @@ struct BreedCard: View {
   }
 }
 
-#Preview {
-  BreedCard(breed: .fake())
+extension BreedCard {
+
+  enum SizeType {
+    case medium, large
+  }
+}
+
+#Preview("Medium Size") {
+  BreedCard(size: .medium, breed: .fake())
+}
+
+#Preview("Large Size") {
+  BreedCard(size: .large, breed: .fake())
 }

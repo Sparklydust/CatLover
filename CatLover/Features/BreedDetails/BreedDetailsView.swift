@@ -2,6 +2,7 @@
 // Copyright © 2024 and confidential to CatLover. All rights reserved.
 //
 
+import Factory
 import SwiftUI
 
 struct BreedDetailsView: View {
@@ -24,5 +25,7 @@ struct BreedDetailsView: View {
 }
 
 #Preview {
-  BreedDetailsView(breed: .fake())
+  let serverMock = try! FakeFactory.serverMock(data: .breedsImagesListData)
+  Container.shared.server.register { serverMock }
+  return BreedDetailsView(breed: .fake())
 }

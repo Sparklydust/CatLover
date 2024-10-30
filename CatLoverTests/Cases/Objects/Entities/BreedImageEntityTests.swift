@@ -33,7 +33,7 @@ final class BreedImageEntityTests {
     let result = try #require(sut)
 
     #expect(result.breedImageID == expectedData.id)
-    #expect(result.imageURL == expectedData.url)
+    #expect(result.url == expectedData.url)
     #expect(result.breedID == expectedBreedID)
   }
 }

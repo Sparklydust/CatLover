@@ -8,12 +8,12 @@ import SwiftData
 @Model final class BreedImageEntity {
 
   @Attribute(.unique) var breedImageID: String
-  var imageURL: String
+  var url: String
   var breedID: String
 
   init(with data: BreedImageData, breedID: String) {
     self.breedImageID = data.id
-    self.imageURL = data.url
+    self.url = data.url
     self.breedID = breedID
   }
 }

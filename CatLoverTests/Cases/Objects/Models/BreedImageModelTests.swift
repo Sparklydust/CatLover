@@ -15,4 +15,13 @@ struct BreedImageModelTests {
     #expect(result.id == expected.id)
     #expect(result.url == expected.url)
   }
+
+  @Test func initializationWithBreedImageEntity_allBreedImageModelValuesAreSet() {
+    let expected: BreedImageEntity = .fake()
+
+    let result = BreedImageModel(with: expected)
+
+    #expect(result.id == expected.breedImageID)
+    #expect(result.url == expected.url)
+  }
 }

@@ -17,6 +17,8 @@ struct BreedDetailsView: View {
         .foregroundStyle(.primary)
         .fontWeight(.medium)
     }
+    .navigationTitle(L10n.breedDetailsNavBarTitle)
+    .navigationBarTitleDisplayMode(.inline)
     .background(Color(.systemGroupedBackground).edgesIgnoringSafeArea(.all))
   }
 }

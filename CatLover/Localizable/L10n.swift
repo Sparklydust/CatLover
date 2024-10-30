@@ -26,6 +26,11 @@ enum L10n {
     comment: "The title populated next to a breed temperament information."
   )
 
+  public static let breedDetailsNavBarTitle = String(
+    localized: "breedDetailsNavBarTitle",
+    comment: "The navigation bar title to populate cat breed details."
+  )
+
   public static let breedsListNavBarTitle = String(
     localized: "breedsListNavBarTitle",
     comment: "The navigation bar title to populate cat breeds."

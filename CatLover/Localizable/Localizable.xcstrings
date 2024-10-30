@@ -23,6 +23,17 @@
         }
       }
     },
+    "breedDetailsNavBarTitle" : {
+      "comment" : "The navigation bar title to populate cat breed details.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breed Details"
+          }
+        }
+      }
+    },
     "breedDetailsOrigin" : {
       "comment" : "The title populated next to a breed origin information.",
       "localizations" : {

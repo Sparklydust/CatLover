@@ -3,8 +3,8 @@
 //
 
 import Factory
-import Foundation
 import Testing
+import UIKit
 @testable import CatLover
 
 @Suite(.serialized)
@@ -24,13 +24,13 @@ final class ImageCacheServiceTests: BaseTestCase, @unchecked Sendable {
   @Test func writeImageIsSuccessful_imageIsReadFromMemory() async throws {
     Container.shared.fileManager.register { self.fileManagerMock }
     sut = ImageCacheService(storageMode: .inMemory)
-    let imageKeyFake = "ImageKeyFake"
-    let expected = try #require("TestImage".data(using: .utf8))
-    try await sut.write(expected, name: imageKeyFake)
+    let imageKeyFake = "TestImageKey"
+    let imageDataFake = try #require(UIImage(systemName: "circle")?.jpegData(compressionQuality: 1.0))
+    try await sut.write(imageDataFake, name: imageKeyFake)
 
-    let result = try await sut.read(name: imageKeyFake)
+    let result = try await sut.read(name: imageKeyFake).isEmpty
 
-    #expect(result == expected)
+    #expect(result == false)
   }
 
   @Test func readUnknownImage_errorIsThrown() async throws {

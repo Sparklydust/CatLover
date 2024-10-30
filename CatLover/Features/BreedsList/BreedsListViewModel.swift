@@ -8,23 +8,11 @@ import UIKit
 
 @Observable final class BreedsListViewModel {
 
-  @ObservationIgnored @Injected(\.imageLoader) private var imageLoader
   @ObservationIgnored @Injected(\.server) private var server
 
   var breeds: [BreedModel] = []
   var isLoading = false
   var showError = false
-}
-
-// MARK: - Image Loader
-extension BreedsListViewModel {
-
-  /// Loads an image from the provided URL string.
-  /// - Parameter urlString: The URL of the image to be fetched.
-  /// - Returns: The loaded `UIImage` if successful, or `nil` if the load fails.
-  @MainActor func loadImage(urlString: String) async -> UIImage? {
-    await imageLoader.loadImage(urlString: urlString)
-  }
 }
 
 // MARK: - Server Request

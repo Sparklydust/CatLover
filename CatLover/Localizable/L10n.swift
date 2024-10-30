@@ -5,5 +5,9 @@
 import Foundation
 
 enum L10n {
-  // Intentionally empty
+
+  public static let breedsListNavBarTitle = String(
+    localized: "breedsListNavBarTitle",
+    comment: "The navigation bar title to populate cat breeds."
+  )
 }

@@ -10,7 +10,7 @@ final class ImageLoaderMock: ImageLoaderProtocol, @unchecked Sendable {
   var imageStub: UIImage?
 
   // Protocol requirements
-  func loadImage(urlString: String) async -> UIImage? {
+  func loadImage(urlString: String?) async -> UIImage? {
     imageStub
   }
 }

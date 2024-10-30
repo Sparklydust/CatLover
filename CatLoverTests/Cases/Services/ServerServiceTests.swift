@@ -21,7 +21,7 @@ final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
   }
 
   @Test func requestIsSuccessful_requestedDataIsReturned() async throws {
-    urlSessionMock = try TestTool.urlSessionMock(data: .breedsListData)
+    urlSessionMock = try FakeFactory.urlSessionMock(data: .breedsListData)
     Container.shared.urlSession.register { self.urlSessionMock }
     sut = ServerService()
     let expected: [BreedData] = [
@@ -43,7 +43,7 @@ final class ServerServiceTests: BaseTestCase, @unchecked Sendable {
   }
 
   @Test func requestIsNotSuccessful_serverErrorIsReturned() async throws {
-    urlSessionMock = try TestTool.urlSessionMock(error: .requestFails)
+    urlSessionMock = try FakeFactory.urlSessionMock(error: .requestFails)
     Container.shared.urlSession.register { self.urlSessionMock }
     sut = ServerService()
 

@@ -11,7 +11,7 @@ final class ImageLoaderSpy: ImageLoaderProtocol, @unchecked Sendable {
   var urlString: String?
 
   // Protocol requirements
-  func loadImage(urlString: String) async -> UIImage? {
+  func loadImage(urlString: String?) async -> UIImage? {
     loadImageIsCalled = true
     self.urlString = urlString
     return .none

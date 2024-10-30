@@ -48,7 +48,7 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
     Container.shared.server.register { self.serverMock }
     sut = BreedDetailsViewModel()
 
-    await sut.getBreedImages(for: BreedModel.fake().id, atPage: .zero)
+    await sut.getBreedImages(for: BreedModel.fake().id)
     let result = sut.breedImages.isEmpty
 
     #expect(result == false)
@@ -60,7 +60,7 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
     Container.shared.server.register { self.serverMock }
     sut = BreedDetailsViewModel()
 
-    await sut.getBreedImages(for: BreedModel.fake().id, atPage: .zero)
+    await sut.getBreedImages(for: BreedModel.fake().id)
     let result = sut.breedImages.isEmpty
 
     #expect(result == true)
@@ -77,7 +77,7 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
 
       #expect(result == true)
     }
-    await sut.getBreedImages(for: BreedModel.fake().id, atPage: .zero)
+    await sut.getBreedImages(for: BreedModel.fake().id)
   }
 
   @MainActor
@@ -86,7 +86,7 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
     Container.shared.server.register { self.serverMock }
     sut = BreedDetailsViewModel()
 
-    await sut.getBreedImages(for: BreedModel.fake().id, atPage: .zero)
+    await sut.getBreedImages(for: BreedModel.fake().id)
     let result = sut.isLoading
 
     #expect(result == false)
@@ -98,7 +98,7 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
     Container.shared.server.register { self.serverMock }
     sut = BreedDetailsViewModel()
 
-    await sut.getBreedImages(for: BreedModel.fake().id, atPage: .zero)
+    await sut.getBreedImages(for: BreedModel.fake().id)
     let result = sut.isLoading
 
     #expect(result == false)

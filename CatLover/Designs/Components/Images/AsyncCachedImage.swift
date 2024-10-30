@@ -44,7 +44,10 @@ struct AsyncCachedImage: View {
   func loadImage(urlString: String?) async {
     guard let urlString, !urlString.isEmpty else { return }
     isLoading = true
-    uiImage = await imageLoader.loadImage(urlString: urlString)
+    let image = await Task.detached(priority: .background) {
+      await self.imageLoader.loadImage(urlString: urlString)
+    }.value
+    uiImage = image
     isLoading = false
   }
 }

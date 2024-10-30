@@ -10,7 +10,10 @@ import Foundation
   @ObservationIgnored @Injected(\.server) private var server
 
   private var page: Int = .zero
-  private var hasMorePage = true
+  private var limitPerPage = 20
+  private var canLoadMore: Bool {
+    !isLoading && breedImages.count % limitPerPage == .zero
+  }
 
   var breedImages: [BreedImageModel] = []
   var isLoading = false
@@ -21,16 +24,18 @@ import Foundation
 extension BreedDetailsViewModel {
 
   @MainActor func getBreedImages(for breedID: String) async {
-    guard !isLoading, hasMorePage else { return }
+    guard canLoadMore else { return }
     isLoading = true
     defer { isLoading = false }
 
     do {
-      let data = try await server.get([BreedImageData].self, atEndpoint: .breedImages(page: page))
+      let data = try await server.get(
+        [BreedImageData].self,
+        atEndpoint: .breedImages(breedID: breedID, page: page, limitPerPage: limitPerPage)
+      )
       let newImages = data.compactMap { BreedImageModel(with: $0) }
       breedImages.append(contentsOf: newImages)
-      page += 1
-      hasMorePage = !newImages.isEmpty
+      newImages.count < limitPerPage ? (page = -1) : (page += 1)
     } catch {
       // Intentionally empty
     }

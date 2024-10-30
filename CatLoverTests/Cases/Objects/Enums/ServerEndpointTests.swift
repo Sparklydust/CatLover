@@ -9,9 +9,9 @@ import Testing
 struct ServerEndpointTests {
 
   @Test func urlEndpointToGetBreedImages() {
-    let expected = URL(string: "https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=ASC&page=1&limit=15")
+    let expected = URL(string: "https://api.thecatapi.com/v1/images/search?size=small&mime_types=jpg&format=json&breed_ids=123-abc&order=ASC&page=1&limit=15")
 
-    let result = ServerEndpoint.breedImages(page: 1).url
+    let result = ServerEndpoint.breedImages(breedID: "123-abc", page: 1, limitPerPage: 15).url
 
     #expect(result == expected)
   }

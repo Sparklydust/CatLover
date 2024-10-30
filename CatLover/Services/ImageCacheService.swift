@@ -3,8 +3,9 @@
 //
 
 import Factory
-import Foundation
+import ImageIO
 import OSLog
+import UIKit
 
 final actor ImageCacheService: ImageCacheProtocol {
 
@@ -17,6 +18,7 @@ final actor ImageCacheService: ImageCacheProtocol {
 
   /// The memory limit that can be used to cache images.
   private let memoryLimit = Int(1e+9) // 1GB
+  private let inMemoryCacheLimit = Int(5e+7) // 50MB
   private let inMemoryCache = NSCache<NSString, NSData>()
 
   /// Defines the storage mode for `ImageCacheService`.
@@ -25,6 +27,9 @@ final actor ImageCacheService: ImageCacheProtocol {
   enum StorageMode {
     case disk
     case inMemory
+  }
+  enum ImageCacheError: Error {
+    case downsamplingImageFails
   }
 
   @Injected(\.fileManager) private var fileManager
@@ -41,7 +46,7 @@ extension ImageCacheService {
 
   /// Configure `cacheDirectory` after the actor is initialized.
   private func configureCacheDirectory() async {
-
+    inMemoryCache.totalCostLimit = inMemoryCacheLimit
     let directory = fileManager
       .urls(for: .cachesDirectory, in: .userDomainMask)[.zero]
       .appendingPathComponent("clipshop_database", isDirectory: true)
@@ -68,7 +73,9 @@ extension ImageCacheService {
 
   func write(_ data: Data, name: String) async throws {
     let cacheName = NSString(string: name)
-    inMemoryCache.setObject(NSData(data: data), forKey: cacheName)
+    guard let downsampledData = downsampleImage(data: data)
+    else { throw ImageCacheError.downsamplingImageFails }
+    inMemoryCache.setObject(NSData(data: downsampledData), forKey: cacheName)
     try data.write(to: cacheURL(for: name), options: .atomic)
     Task(priority: .background) { try await cleanMemorySurplus() }
   }
@@ -137,5 +144,28 @@ extension ImageCacheService {
           size: attributes.totalFileAllocatedSize ?? .zero
         )
       }
+  }
+}
+
+// MARK: - Downsample Image
+extension ImageCacheService {
+
+  /// Downsamples an image to the target size for efficient caching.
+  /// - Parameter data: The original image data.
+  /// - Returns: A downsampled `Data` object, if successful.
+  private func downsampleImage(data: Data) -> Data? {
+    guard let imageSource = CGImageSourceCreateWithData(data as CFData, nil) else { return .none }
+    let targetSize = CGSize(width: 150, height: 150)
+    let options: [NSString: Any] = [
+      kCGImageSourceThumbnailMaxPixelSize: max(targetSize.width, targetSize.height),
+      kCGImageSourceCreateThumbnailFromImageAlways: true,
+      kCGImageSourceShouldCacheImmediately: true,
+      kCGImageSourceCreateThumbnailWithTransform: true
+    ]
+    guard let downsampledImage = CGImageSourceCreateThumbnailAtIndex(
+      imageSource, .zero, options as CFDictionary
+    ) else { return .none }
+    let uiImage = UIImage(cgImage: downsampledImage)
+    return uiImage.jpegData(compressionQuality: 0.5)
   }
 }

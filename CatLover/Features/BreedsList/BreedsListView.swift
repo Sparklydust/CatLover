@@ -7,6 +7,7 @@ import SwiftUI
 
 struct BreedsListView: View {
 
+  @State private var selectedBreed: BreedModel?
   @State private var vm = BreedsListViewModel()
 
   var body: some View {
@@ -14,13 +15,18 @@ struct BreedsListView: View {
       ScrollView {
         LazyVStack {
           ForEach(vm.filteredBreeds, id: \.id) { breed in
-            BreedCard(breed: breed)
-              .padding(.horizontal)
+            Button(action: { selectedBreed = breed }) {
+              BreedCard(breed: breed)
+            }
+            .padding(.horizontal)
           }
         }
       }
       .navigationTitle(L10n.breedsListNavBarTitle)
       .searchable(text: $vm.searchText)
+      .navigationDestination(item: $selectedBreed) { breed in
+        EmptyView()
+      }
     }
     .firstTask { await vm.getBreeds() }
     .overlay { if vm.isLoading { LTProgressView() }}

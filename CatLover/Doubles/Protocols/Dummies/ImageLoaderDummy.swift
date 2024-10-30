@@ -7,7 +7,7 @@ import UIKit
 final class ImageLoaderDummy: ImageLoaderProtocol {
 
   // Protocol requirements
-  func loadImage(urlString: String) async -> UIImage? {
+  func loadImage(urlString: String?) async -> UIImage? {
     .none
   }
 }

@@ -18,9 +18,7 @@ struct BreedsListView: View {
 }
 
 #Preview {
-  let imageLoaderMock = ImageLoaderMock()
   let serverMock = try! FakeFactory.serverMock(data: .breedsListData)
-  Container.shared.imageLoader.register { imageLoaderMock }
   Container.shared.server.register { serverMock }
   return BreedsListView()
     .modelContainer(try! BreedEntity.fakeContainer())

@@ -14,8 +14,8 @@ final actor ImageLoaderService: ImageLoaderProtocol {
 // MARK: - ImageLoaderProtocol
 extension ImageLoaderService {
 
-  func loadImage(urlString: String) async -> UIImage? {
-    guard let url = URL(string: urlString) else { return .none }
+  func loadImage(urlString: String?) async -> UIImage? {
+    guard let urlString, let url = URL(string: urlString) else { return .none }
     let fileName = urlString.extractedFileName
 
     if let cachedData = try? await imageCache.read(name: fileName) {

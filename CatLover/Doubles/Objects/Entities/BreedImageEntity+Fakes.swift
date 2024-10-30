@@ -17,7 +17,7 @@ extension BreedImageEntity {
   ) -> BreedImageEntity {
     .init(
       with: data,
-      breedID: "123-abc"
+      breedID: breedID
     )
   }
 }

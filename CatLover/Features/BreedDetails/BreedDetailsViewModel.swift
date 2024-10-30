@@ -12,6 +12,7 @@ import SwiftData
 
   private var page: Int = .zero
   private var limitPerPage = 20
+  /// Determines if more images can be loaded based on the current state.
   private var canLoadMore: Bool {
     !isLoading && breedImages.count % limitPerPage == .zero
   }
@@ -38,7 +39,7 @@ extension BreedDetailsViewModel {
       )
       let newImages = data.compactMap { BreedImageModel(with: $0) }
       breedImages.append(contentsOf: newImages)
-      newImages.count < limitPerPage ? (page = -1) : (page += 1)
+      newImages.count < limitPerPage ? (page = -1) : (page += 1) // Stops or continue pagination
       data.forEach {
         BreedImageEntity.modelContext.insert(BreedImageEntity(with: $0, breedID: breedID))
       }

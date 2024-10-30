@@ -157,7 +157,7 @@ extension ImageCacheService {
   /// - Returns: A downsampled `Data` object, if successful.
   private func downsampleImage(data: Data) -> Data? {
     guard let imageSource = CGImageSourceCreateWithData(data as CFData, nil) else { return .none }
-    let targetSize = CGSize(width: 150, height: 150)
+    let targetSize = CGSize(width: 200, height: 200)
     let options: [NSString: Any] = [
       kCGImageSourceThumbnailMaxPixelSize: max(targetSize.width, targetSize.height),
       kCGImageSourceCreateThumbnailFromImageAlways: true,
@@ -168,6 +168,6 @@ extension ImageCacheService {
       imageSource, .zero, options as CFDictionary
     ) else { return .none }
     let uiImage = UIImage(cgImage: downsampledImage)
-    return uiImage.jpegData(compressionQuality: 0.5)
+    return uiImage.jpegData(compressionQuality: 0.7)
   }
 }

@@ -22,7 +22,6 @@ struct CLProgressView: View {
   CLProgressView(size: .medium)
 }
 
-
 #Preview {
   CLProgressView(size: .large)
 }

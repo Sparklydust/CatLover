@@ -7,10 +7,10 @@ import Foundation
 struct BreedImageModel: Equatable, Identifiable {
 
   let id: String
-  let imageURL: String
+  let url: String
 
   init(with data: BreedImageData) {
     id = data.id
-    imageURL = data.url
+    url = data.url
   }
 }

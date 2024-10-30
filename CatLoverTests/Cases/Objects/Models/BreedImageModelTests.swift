@@ -13,6 +13,6 @@ struct BreedImageModelTests {
     let result = BreedImageModel(with: expected)
 
     #expect(result.id == expected.id)
-    #expect(result.imageURL == expected.url)
+    #expect(result.url == expected.url)
   }
 }

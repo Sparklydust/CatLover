@@ -18,7 +18,8 @@ import UIKit
   var searchText = String() {
     didSet { updateFilteredBreeds() }
   }
-  var showError = false
+  var showAPIKeyError = false
+  var showConnectionError = false
 }
 
 // MARK: - Search
@@ -49,7 +50,7 @@ extension BreedsListViewModel {
       breeds = data.map { BreedModel(with: $0) }
       data.forEach { BreedEntity.modelContext.insert(BreedEntity(with: $0)) }
     } catch ServerError.apiKeyMissing {
-      // Intentionally empty
+      showAPIKeyError = true
     } catch {
       loadCachedBreeds()
     }
@@ -61,6 +62,6 @@ extension BreedsListViewModel {
       .fetch(FetchDescriptor<BreedEntity>())
       .forEach { breeds.append(BreedModel(with: $0)) }
     guard breeds.isEmpty else { return }
-    showError = true
+    showConnectionError = true
   }
 }

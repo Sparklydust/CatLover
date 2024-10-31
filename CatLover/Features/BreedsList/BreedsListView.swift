@@ -27,6 +27,10 @@ struct BreedsListView: View {
     }
     .firstTask { await vm.getBreeds() }
     .overlay { if vm.isLoading { CLProgressView(size: .large) }}
+    .breedsListAlert(
+      showAPIKeyError: $vm.showAPIKeyError,
+      showConnectionError: $vm.showConnectionError
+    )
   }
 }
 

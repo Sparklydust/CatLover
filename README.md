@@ -21,16 +21,19 @@ The goal of this assessment was to create an app that displays cat or dog breeds
 - Supports iPhone on iOS 18 and above.
 - Uses MVVM architecture with SwiftUI for clean separation of UI and logic.
 - Displays a list of cat breeds with details on lifespan, origin, and temperament.
-- Breed search with dynamic filtering.
+- Dynamic breed search with filtering capabilities.
 - Caches images and data for offline accessibility using `NSCache`, `FileManager`, and `SwiftData`.
 
 ## Setup Instructions
 
 1. Clone the repository and open the project in Xcode on the main or develop branch.
 2. Obtain an API key from [TheCatAPI](https://thecatapi.com) and add it to Xcode as an environment variable:
+   - Sign up for a free account at TheCatAPI.
+   - Copy your API key from the dashboard.
 3. Add the key to the Info.plist:
    - Go to `CatLover/Configurations/Info.plist`.
    - Add your API key under the `CAT_API_KEY` key.
+   - The key should be added as a String type.
 4. Run the app on your simulator or device.
 
 ## Architecture
@@ -62,4 +65,4 @@ CatLover is available under the MIT license.
 
 ## Contact
 
-Reach out to roland.lariotte@gmail.com
+Reach out to [roland.lariotte@gmail.com](mailto:roland.lariotte@gmail.com)

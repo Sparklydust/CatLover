@@ -1,0 +1,210 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "breedDetailsGallery" : {
+      "comment" : "Title populate on top of a breed image gallery.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gallery"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Galerie"
+          }
+        }
+      }
+    },
+    "breedDetailsLifespan" : {
+      "comment" : "The title populated next to a breed lifespan information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lifespan: %@ years"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durée de vie : %@ ans"
+          }
+        }
+      }
+    },
+    "breedDetailsNavBarTitle" : {
+      "comment" : "The navigation bar title to populate cat breed details.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breed Details"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails de la Race"
+          }
+        }
+      }
+    },
+    "breedDetailsOrigin" : {
+      "comment" : "The title populated next to a breed origin information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin: "
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origine: "
+          }
+        }
+      }
+    },
+    "breedDetailsTemperament" : {
+      "comment" : "The title populated next to a breed temperament information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperament: "
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempérament: "
+          }
+        }
+      }
+    },
+    "breedsListNavBarTitle" : {
+      "comment" : "The navigation bar title to populate cat breeds.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cat Breeds"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Races de Chats"
+          }
+        }
+      }
+    },
+    "serverErrorAPIKeyMissingMessage" : {
+      "comment" : "Error message shown when API key is missing.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A valid Cat API Key is required for server requests. Please add it in the Xcode plist file as a value for the CAT_API_KEY."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une clé API valide est requise pour les requêtes serveur. Veuillez l'ajouter dans le fichier plist comme valeur pour la clé CAT_API_KEY."
+          }
+        }
+      }
+    },
+    "serverErrorAPIKeyMissingTitle" : {
+      "comment" : "Title for missing API key error.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cat API Key Missing"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé API Manquante"
+          }
+        }
+      }
+    },
+    "serverErrorBreedDetailsFailureMessage" : {
+      "comment" : "Error message shown when breed details or image gallery fails to load due to connectivity issues.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The image gallery could not be loaded because your device is offline. Connect to the internet to view images for this breed."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La galerie d'images n'a pas pu être chargée car votre appareil est hors ligne. Connectez-vous à Internet pour voir les images de cette race."
+          }
+        }
+      }
+    },
+    "serverErrorBreedDetailsFailureTitle" : {
+      "comment" : "Title for error when breed details or images fail to load.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Images Unavailable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Images Indisponibles"
+          }
+        }
+      }
+    },
+    "serverErrorBreedsListFailureMessage" : {
+      "comment" : "Error message shown when breed list fetch fails due to connectivity issues.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn’t load the breed list because your device is offline. Please check your connection and try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous n'avons pas pu charger la liste des races car votre appareil est hors ligne. Veuillez vérifier votre connexion et réessayer."
+          }
+        }
+      }
+    },
+    "serverErrorBreedsListFailureTitle" : {
+      "comment" : "Title for error when breed list fetch fails.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection Unavailable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexion Indisponible"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

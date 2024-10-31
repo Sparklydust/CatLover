@@ -1,0 +1,24 @@
+[
+  {
+    "id": "abys",
+    "name": "Abyssinian",
+    "temperament": "Active, Energetic, Independent, Intelligent, Gentle",
+    "origin": "Egypt",
+    "description": "The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.",
+    "life_span": "14 - 15",
+    "image": {
+      "url": "imBreedFake01"
+    }
+  },
+  {
+    "id": "aege",
+    "name": "Aegean",
+    "temperament": "Affectionate, Social",
+    "origin": "Greece",
+    "description": "Native to the Greek islands known as the Cyclades in the Aegean Sea.",
+    "life_span": "9 - 12",
+    "image": {
+      "url": "imBreedFake02"
+    }
+  }
+]

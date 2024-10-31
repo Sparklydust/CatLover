@@ -9,6 +9,12 @@
             "state" : "translated",
             "value" : "Gallery"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Galerie"
+          }
         }
       }
     },
@@ -19,6 +25,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lifespan: %@ years"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durée de vie : %@ ans"
           }
         }
       }
@@ -31,6 +43,12 @@
             "state" : "translated",
             "value" : "Breed Details"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails de la Race"
+          }
         }
       }
     },
@@ -41,6 +59,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Origin: "
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origine: "
           }
         }
       }
@@ -53,6 +77,12 @@
             "state" : "translated",
             "value" : "Temperament: "
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempérament: "
+          }
         }
       }
     },
@@ -63,6 +93,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cat Breeds"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Races de Chats"
           }
         }
       }
@@ -75,6 +111,12 @@
             "state" : "translated",
             "value" : "A valid Cat API Key is required for server requests. Please add it as an environment variable in Xcode."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une clé API valide est requise pour les requêtes serveur. Veuillez l'ajouter comme variable d'environnement dans Xcode."
+          }
         }
       }
     },
@@ -85,6 +127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cat API Key Missing"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé API Manquante"
           }
         }
       }
@@ -97,6 +145,12 @@
             "state" : "translated",
             "value" : "The image gallery could not be loaded because your device is offline. Connect to the internet to view images for this breed."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La galerie d'images n'a pas pu être chargée car votre appareil est hors ligne. Connectez-vous à Internet pour voir les images de cette race."
+          }
         }
       }
     },
@@ -107,6 +161,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Images Unavailable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Images Indisponibles"
           }
         }
       }
@@ -119,6 +179,12 @@
             "state" : "translated",
             "value" : "We couldn’t load the breed list because your device is offline. Please check your connection and try again."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous n'avons pas pu charger la liste des races car votre appareil est hors ligne. Veuillez vérifier votre connexion et réessayer."
+          }
         }
       }
     },
@@ -129,6 +195,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Connection Unavailable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexion Indisponible"
           }
         }
       }

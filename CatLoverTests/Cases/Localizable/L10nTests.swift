@@ -56,7 +56,7 @@ struct L10nTests {
   }
 
   @Test func serverErrorAPIKeyMissingMessage_returnsAssociatedTranslation() {
-    let expected = "A valid Cat API Key is required for server requests. Please add it as an environment variable in Xcode."
+    let expected = "A valid Cat API Key is required for server requests. Please add it in the Xcode plist file as a value for the CAT_API_KEY."
 
     let result = L10n.serverErrorAPIKeyMissingMessage
 

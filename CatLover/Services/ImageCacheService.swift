@@ -51,7 +51,7 @@ extension ImageCacheService {
 
     let directory = fileManager
       .urls(for: .cachesDirectory, in: .userDomainMask)[.zero]
-      .appendingPathComponent("clipshop_database", isDirectory: true)
+      .appendingPathComponent("cat_lover_database", isDirectory: true)
 
     cacheDirectory = directory
 

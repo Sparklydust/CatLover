@@ -86,6 +86,21 @@ final class BreedDetailsViewModelTests: BaseTestCase, @unchecked Sendable {
 
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
+  func serverRequest_startsRequestingData_showErrorIsFalse() async throws {
+    serverMock = try FakeFactory.serverMock(data: .breedsImagesListData)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedDetailsViewModel()
+
+    serverMock.onPerformAsyncAwait = {
+      let result = self.sut.showError
+
+      #expect(result == false)
+    }
+    await sut.getBreedImages(for: BreedModel.fake().id)
+  }
+
+  @MainActor
+  @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
   func serverRequest_finishRequestingDataWithSuccess_isLoadingIsFalse() async throws {
     serverMock = try FakeFactory.serverMock(data: .breedsImagesListData)
     Container.shared.server.register { self.serverMock }

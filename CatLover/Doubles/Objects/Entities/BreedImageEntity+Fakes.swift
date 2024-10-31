@@ -12,10 +12,12 @@ extension BreedImageEntity {
   /// Create fake ``BreedImageEntity`` object for unit tests.
   /// Returns: Initialized object with fake data.
   static func fake(
-    with data: BreedImageData = .fake()
+    with data: BreedImageData = .fake(),
+    breedID: String = "123-abc"
   ) -> BreedImageEntity {
     .init(
-      with: data
+      with: data,
+      breedID: breedID
     )
   }
 }

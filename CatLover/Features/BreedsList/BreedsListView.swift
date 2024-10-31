@@ -17,7 +17,7 @@ struct BreedsListView: View {
             NavigationLink {
               BreedDetailsView(breed: breed)
             } label: {
-              BreedCard(breed: breed)
+              BreedCard(size: .medium, breed: breed)
             }
           }
         }
@@ -26,7 +26,7 @@ struct BreedsListView: View {
       .searchable(text: $vm.searchText)
     }
     .firstTask { await vm.getBreeds() }
-    .overlay { if vm.isLoading { LTProgressView() }}
+    .overlay { if vm.isLoading { CLProgressView(size: .large) }}
   }
 }
 

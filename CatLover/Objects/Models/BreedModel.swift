@@ -29,7 +29,6 @@ extension BreedModel {
   }
 }
 
-
 // MARK: - Initialize BreedEntity
 extension BreedModel {
 

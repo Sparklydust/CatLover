@@ -4,13 +4,26 @@
 
 import Foundation
 
-struct BreedImageModel {
+struct BreedImageModel: Equatable, Identifiable {
 
   let id: String
-  let imageURL: String
+  let url: String
+}
+
+// MARK: - Initialize BreedImageData
+extension BreedImageModel {
 
   init(with data: BreedImageData) {
     id = data.id
-    imageURL = data.url
+    url = data.url
+  }
+}
+
+// MARK: - Initialize BreedImageEntity
+extension BreedImageModel {
+
+  init(with data: BreedImageEntity) {
+    id = data.breedImageID
+    url = data.url
   }
 }

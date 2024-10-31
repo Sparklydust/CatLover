@@ -17,7 +17,7 @@ final class BreedImageEntityTests {
       for: BreedImageEntity.self,
       configurations: .init(isStoredInMemoryOnly: true)
     )
-    sut = BreedImageEntity(with: .fake())
+    sut = BreedImageEntity(with: .fake(), breedID: "123-abc")
   }
 
   deinit {
@@ -26,12 +26,14 @@ final class BreedImageEntityTests {
   }
 
   @Test func initializedWithBreedImageData_valuesAreCorrectlySet() throws {
-    let expected = BreedImageData.fake()
-    sut = BreedImageEntity(with: expected)
+    let expectedData = BreedImageData.fake()
+    let expectedBreedID = "123-abc"
+    sut = BreedImageEntity(with: expectedData, breedID: expectedBreedID)
 
     let result = try #require(sut)
 
-    #expect(result.breedImageID == expected.id)
-    #expect(result.imageURL == expected.url)
+    #expect(result.breedImageID == expectedData.id)
+    #expect(result.url == expectedData.url)
+    #expect(result.breedID == expectedBreedID)
   }
 }

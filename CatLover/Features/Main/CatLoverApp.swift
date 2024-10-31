@@ -10,7 +10,7 @@ struct CatLoverApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      BreedsListView()
         .modelContainer(ModelContainer.shared)
     }
   }

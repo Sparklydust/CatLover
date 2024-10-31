@@ -7,7 +7,47 @@ import Testing
 
 struct L10nTests {
 
-  func breedsListNavBarTitle_returnsAssociatedTranslation() {
+  @Test func breedDetailsGallery_returnsAssociatedTranslation() {
+    let expected = "Gallery"
+
+    let result = L10n.breedDetailsGallery
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func breedDetailsLifespan_returnsAssociatedTranslation() {
+    let expected = "Lifespan: %@ years"
+
+    let result = L10n.breedDetailsLifespan
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func breedDetailsOrigin_returnsAssociatedTranslation() {
+    let expected = "Origin: "
+
+    let result = L10n.breedDetailsOrigin
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func breedDetailsTemperament_returnsAssociatedTranslation() {
+    let expected = "Temperament: "
+
+    let result = L10n.breedDetailsTemperament
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func breedDetailsNavBarTitle_returnsAssociatedTranslation() {
+    let expected = "Breed Details"
+
+    let result = L10n.breedDetailsNavBarTitle
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func breedsListNavBarTitle_returnsAssociatedTranslation() {
     let expected = "Cat Breeds"
 
     let result = L10n.breedsListNavBarTitle

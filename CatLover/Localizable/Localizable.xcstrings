@@ -1,6 +1,61 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "breedDetailsGallery" : {
+      "comment" : "Title populate on top of a breed image gallery.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gallery"
+          }
+        }
+      }
+    },
+    "breedDetailsLifespan" : {
+      "comment" : "The title populated next to a breed lifespan information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lifespan: %@ years"
+          }
+        }
+      }
+    },
+    "breedDetailsNavBarTitle" : {
+      "comment" : "The navigation bar title to populate cat breed details.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breed Details"
+          }
+        }
+      }
+    },
+    "breedDetailsOrigin" : {
+      "comment" : "The title populated next to a breed origin information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin: "
+          }
+        }
+      }
+    },
+    "breedDetailsTemperament" : {
+      "comment" : "The title populated next to a breed temperament information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperament: "
+          }
+        }
+      }
+    },
     "breedsListNavBarTitle" : {
       "comment" : "The navigation bar title to populate cat breeds.",
       "localizations" : {

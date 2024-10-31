@@ -5,15 +5,23 @@
 import SwiftUI
 
 /// Custom progress view.
-struct LTProgressView: View {
+struct CLProgressView: View {
+
+  enum SizeType { case medium, large }
+
+  var size: SizeType
 
   var body: some View {
     ProgressView()
-      .scaleEffect(1.6)
+      .scaleEffect(size == .medium ? 1.2 : 1.6)
       .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
   }
 }
 
 #Preview {
-  LTProgressView()
+  CLProgressView(size: .medium)
+}
+
+#Preview {
+  CLProgressView(size: .large)
 }

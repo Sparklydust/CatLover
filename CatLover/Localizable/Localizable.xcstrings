@@ -109,13 +109,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A valid Cat API Key is required for server requests. Please add it as an environment variable in Xcode."
+            "value" : "A valid Cat API Key is required for server requests. Please add it in the Xcode plist file as a value for the CAT_API_KEY."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une clé API valide est requise pour les requêtes serveur. Veuillez l'ajouter comme variable d'environnement dans Xcode."
+            "value" : "Une clé API valide est requise pour les requêtes serveur. Veuillez l'ajouter dans le fichier plist comme valeur pour la clé CAT_API_KEY."
           }
         }
       }

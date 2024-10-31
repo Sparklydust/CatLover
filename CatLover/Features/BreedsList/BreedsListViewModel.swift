@@ -61,6 +61,7 @@ extension BreedsListViewModel {
       .modelContext
       .fetch(FetchDescriptor<BreedEntity>())
       .forEach { breeds.append(BreedModel(with: $0)) }
+    breeds.sort { $0.name < $1.name }
     guard breeds.isEmpty else { return }
     showConnectionError = true
   }

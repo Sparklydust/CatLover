@@ -57,23 +57,9 @@ extension BreedImageEntity {
   /// Sets up a fake ``ModelContext`` for unit testing.
   ///
   /// This method creates an in-memory ``ModelContext`` and assigns it to `modelContextFake`.
-  /// It allows for an optional closure to insert entities into the context, which is useful for
-  /// preparing test scenarios with pre-existing data.
-  /// ## Example Usage:
-  /// ```swift
-  /// // Setup the fake context with entities for tests
-  /// let fakeContext = BreedImageEntity.fakeContext { context in
-  ///   let entity = BreedImageEntity.fake()
-  ///   context.insert(entity)
-  /// }
-  /// ```
-  /// - Parameter insertEntities: A closure that takes a ``ModelContext`` and allows you to insert
-  ///   entities into the fake context. By default, this closure does nothing.
   /// - Returns: The fake ``ModelContext`` that has been set up.
   /// - Note: This method must be called on the main thread, as indicated by the `@MainActor` attribute.
-  @MainActor static func fakeContext(
-    insertEntities: (ModelContext) -> Void = { _ in }
-  ) -> ModelContext {
+  @MainActor static func fakeContext() -> ModelContext {
     do {
       let fakeContext = try ModelContainer(
         for: BreedImageEntity.self,
@@ -81,7 +67,6 @@ extension BreedImageEntity {
       ).mainContext
       BreedImageEntity.internalFakeContext = fakeContext
 
-      insertEntities(fakeContext)
       return fakeContext
     } catch {
       fatalError("Failed to create `ModelContext` for `BreedImageEntity`: \(error)")

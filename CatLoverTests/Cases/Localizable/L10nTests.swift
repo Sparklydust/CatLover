@@ -54,4 +54,52 @@ struct L10nTests {
 
     #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
   }
+
+  @Test func serverErrorAPIKeyMissingMessage_returnsAssociatedTranslation() {
+    let expected = "A valid Cat API Key is required for server requests. Please add it as an environment variable in Xcode."
+
+    let result = L10n.serverErrorAPIKeyMissingMessage
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func serverErrorAPIKeyMissingTitle_returnsAssociatedTranslation() {
+    let expected = "Cat API Key Missing"
+
+    let result = L10n.serverErrorAPIKeyMissingTitle
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func serverErrorBreedDetailsFailureMessage_returnsAssociatedTranslation() {
+    let expected = "The image gallery could not be loaded because your device is offline. Connect to the internet to view images for this breed."
+
+    let result = L10n.serverErrorBreedDetailsFailureMessage
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func serverErrorBreedDetailsFailureTitle_returnsAssociatedTranslation() {
+    let expected = "Images Unavailable"
+
+    let result = L10n.serverErrorBreedDetailsFailureTitle
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func serverErrorBreedsListFailureMessage_returnsAssociatedTranslation() {
+    let expected = "We couldn’t load the breed list because your device is offline. Please check your connection and try again."
+
+    let result = L10n.serverErrorBreedsListFailureMessage
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
+
+  @Test func serverErrorBreedsListFailureTitle_returnsAssociatedTranslation() {
+    let expected = "Connection Unavailable"
+
+    let result = L10n.serverErrorBreedsListFailureTitle
+
+    #expect(result == expected, "Translation must match the one in the associated `Localizable` table file.")
+  }
 }

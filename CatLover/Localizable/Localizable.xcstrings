@@ -66,6 +66,72 @@
           }
         }
       }
+    },
+    "serverErrorAPIKeyMissingMessage" : {
+      "comment" : "Error message shown when API key is missing.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A valid Cat API Key is required for server requests. Please add it as an environment variable in Xcode."
+          }
+        }
+      }
+    },
+    "serverErrorAPIKeyMissingTitle" : {
+      "comment" : "Title for missing API key error.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cat API Key Missing"
+          }
+        }
+      }
+    },
+    "serverErrorBreedDetailsFailureMessage" : {
+      "comment" : "Error message shown when breed details or image gallery fails to load due to connectivity issues.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The image gallery could not be loaded because your device is offline. Connect to the internet to view images for this breed."
+          }
+        }
+      }
+    },
+    "serverErrorBreedDetailsFailureTitle" : {
+      "comment" : "Title for error when breed details or images fail to load.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Images Unavailable"
+          }
+        }
+      }
+    },
+    "serverErrorBreedsListFailureMessage" : {
+      "comment" : "Error message shown when breed list fetch fails due to connectivity issues.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn’t load the breed list because your device is offline. Please check your connection and try again."
+          }
+        }
+      }
+    },
+    "serverErrorBreedsListFailureTitle" : {
+      "comment" : "Title for error when breed list fetch fails.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection Unavailable"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

@@ -35,4 +35,34 @@ enum L10n {
     localized: "breedsListNavBarTitle",
     comment: "The navigation bar title to populate cat breeds."
   )
+
+  public static let serverErrorAPIKeyMissingMessage = String(
+    localized: "serverErrorAPIKeyMissingMessage",
+    comment: "Error message shown when API key is missing."
+  )
+
+  public static let serverErrorAPIKeyMissingTitle = String(
+    localized: "serverErrorAPIKeyMissingTitle",
+    comment: "Title for missing API key error."
+  )
+
+  public static let serverErrorBreedsListFailureMessage = String(
+    localized: "serverErrorBreedsListFailureMessage",
+    comment: "Error message shown when breed list fetch fails due to connectivity issues."
+  )
+
+  public static let serverErrorBreedsListFailureTitle = String(
+    localized: "serverErrorBreedsListFailureTitle",
+    comment: "Title for error when breed list fetch fails."
+  )
+
+  public static let serverErrorBreedDetailsFailureMessage = String(
+    localized: "serverErrorBreedDetailsFailureMessage",
+    comment: "Error message shown when breed details or image gallery fails to load due to connectivity issues."
+  )
+
+  public static let serverErrorBreedDetailsFailureTitle = String(
+    localized: "serverErrorBreedDetailsFailureTitle",
+    comment: "Title for error when breed details or images fail to load."
+  )
 }

@@ -36,8 +36,14 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
     #expect(result == false)
   }
 
-  @Test func initialization_showError_isFalse() {
-    let result = sut.showError
+  @Test func initialization_showConnectionError_isFalse() {
+    let result = sut.showConnectionError
+
+    #expect(result == false)
+  }
+
+  @Test func initialization_showAPIKeyError_isFalse() {
+    let result = sut.showAPIKeyError
 
     #expect(result == false)
   }
@@ -192,13 +198,26 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
 
   @MainActor
   @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
-  func serverRequest_failsWithSavedBreedEntityDataEmpty_showErrorValueIsTrue() async throws {
+  func serverRequest_failsWithSavedBreedEntityDataEmpty_showConnectionErrorValueIsTrue() async throws {
     serverMock = try FakeFactory.serverMock(error: .requestFails)
     Container.shared.server.register { self.serverMock }
     sut = BreedsListViewModel()
 
     await sut.getBreeds()
-    let result = sut.showError
+    let result = sut.showConnectionError
+
+    #expect(result == true)
+  }
+
+  @MainActor
+  @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
+  func serverRequest_failsWithMissingAPIKey_showConnectionErrorValueIsTrue() async throws {
+    serverMock = try FakeFactory.serverMock(error: .apiKeyMissing)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+
+    await sut.getBreeds()
+    let result = sut.showAPIKeyError
 
     #expect(result == true)
   }

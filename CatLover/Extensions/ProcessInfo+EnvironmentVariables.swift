@@ -11,9 +11,7 @@ extension ProcessInfo {
   ///
   /// You can obtain an API key from TheCatAPI by visiting [TheCatAPI](https://thecatapi.com)
   /// - Warning: Ensure `CAT_API_KEY` is set in your Xcode scheme's environment variables.
-  static var catAPIKey: String {
-    guard let apiKey = ProcessInfo.processInfo.environment["CAT_API_KEY"]
-    else { fatalError("You must add your CatLover API key to your environment variables.") }
-    return apiKey
+  static var catAPIKey: String? {
+    ProcessInfo.processInfo.environment["CAT_API_KEY"]
   }
 }

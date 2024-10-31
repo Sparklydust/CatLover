@@ -19,7 +19,8 @@ extension ServerService {
   ) async throws -> T {
 
     guard let url = endpoint.url else { throw ServerError.urlConstructionFails }
-    guard let apiKey = ProcessInfo.catAPIKey, !apiKey.isEmpty else { throw ServerError.apiKeyMissing }
+    guard let apiKey = Bundle.main.catAPIKey, !apiKey.isEmpty
+    else { throw ServerError.apiKeyMissing }
 
     var request = URLRequest(url: url)
     request.setValue(apiKey, forHTTPHeaderField: "x-api-key")

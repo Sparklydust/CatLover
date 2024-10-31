@@ -28,9 +28,10 @@ The goal of this assessment was to create an app that displays cat or dog breeds
 
 1. Clone the repository and open the project in Xcode on the main or develop branch.
 2. Obtain an API key from [TheCatAPI](https://thecatapi.com) and add it to Xcode as an environment variable:
-   - Go to the project scheme > Edit Scheme > Run > Arguments.
-   - Add the value for `CAT_API_KEY` in the Environment Variables section.
-3. Run the app on your simulator or device.
+3. Add the key to the Info.plist:
+   - Go to `CatLover/Configurations/Info.plist`.
+   - Add your API key under the `CAT_API_KEY` key.
+4. Run the app on your simulator or device.
 
 ## Architecture
 

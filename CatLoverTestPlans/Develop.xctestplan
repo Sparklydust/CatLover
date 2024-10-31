@@ -12,7 +12,7 @@
     "environmentVariableEntries" : [
       {
         "key" : "CAT_API_KEY",
-        "value" : "ABC-123-DEF"
+        "value" : "fake-api-key-for-test"
       }
     ],
     "language" : "en",

@@ -48,6 +48,8 @@ extension BreedsListViewModel {
       let data = try await server.get([BreedData].self, atEndpoint: .breedsList)
       breeds = data.map { BreedModel(with: $0) }
       data.forEach { BreedEntity.modelContext.insert(BreedEntity(with: $0)) }
+    } catch ServerError.apiKeyMissing {
+      // Intentionally empty
     } catch {
       loadCachedBreeds()
     }

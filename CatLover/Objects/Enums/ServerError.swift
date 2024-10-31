@@ -8,4 +8,5 @@ enum ServerError: Error {
 
   case requestFails
   case urlConstructionFails
+  case apiKeyMissing
 }

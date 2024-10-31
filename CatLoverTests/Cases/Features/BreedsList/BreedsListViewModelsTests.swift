@@ -235,4 +235,20 @@ final class BreedsListViewModelsTests: BaseTestCase, @unchecked Sendable {
 
     #expect(result == false)
   }
+
+  @MainActor
+  @Test(.disabled("Unresolved SwiftData in-memory container limitations in test environment."))
+  func serverRequest_failsWithBreedEntitySavedDataNotEmpty_filteredBreedsAreOrderedAlphabetically() async throws {
+    serverMock = try FakeFactory.serverMock(error: .requestFails)
+    Container.shared.server.register { self.serverMock }
+    sut = BreedsListViewModel()
+    BreedEntity.modelContext.insert(BreedEntity.fake(with: .fake(id: "123", name: "Zebra Cat")))
+    BreedEntity.modelContext.insert(BreedEntity.fake(with: .fake(id: "456", name: "Abyssinian")))
+    BreedEntity.modelContext.insert(BreedEntity.fake(with: .fake(id: "789", name: "Bengal")))
+
+    await sut.getBreeds()
+    let result = sut.filteredBreeds == sut.filteredBreeds.sorted { $0.name < $1.name }
+
+    #expect(result == true)
+  }
 }

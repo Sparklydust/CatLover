@@ -39,6 +39,10 @@ struct BreedDetailsView: View {
           CLProgressView(size: .medium)
             .padding(.vertical)
         }
+
+        if vm.showError {
+          GalleryUnavailableView()
+        }
       }
     }
     .navigationTitle(L10n.breedDetailsNavBarTitle)

@@ -30,6 +30,7 @@ extension BreedDetailsViewModel {
   @MainActor func getBreedImages(for breedID: String) async {
     guard canLoadMore else { return }
     isLoading = true
+    showError = false
     defer { isLoading = false }
 
     do {
